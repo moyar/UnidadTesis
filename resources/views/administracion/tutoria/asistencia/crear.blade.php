@@ -4,7 +4,7 @@
 	alumnos=[];
 </script>
 	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>Nueva Asistencia</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
@@ -19,11 +19,12 @@
 			{!!Form::open(array('url'=>'administracion/tutoria/asistencia','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-            <div class="form-group col-md-5">
+            <input type="hidden" name="tutoriaId" value="{{$tutorias->id}}">
+            <div class="form-group col-md-4">
             	<label for="fecha">Fecha </label>
             	<input type="date" name="fecha" class="form-control">
             </div>
-           <div class="form-group col-md-5">
+           <div class="form-group col-md-4">
            <label for = "periodo">Periodo</label>
            <select class="form-control" name="periodo">
 					
@@ -38,10 +39,12 @@
 
 			</select>
 			</div>
-			<div>
-			<label>Opción</label>
-			<button class="btn btn-info col-md-2 " type="submit">Guardar</button>
+			<div class="form-group col-md-4">
+			<label class="col-md-12">Opciónes</label>
+			<button class="btn btn-info col-md-6 " type="submit">Guardar</button>
+			<button href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" type="button" class="btn btn-danger col-md-6">Cancelar</button>
 			</div>
+			
 
 
 
@@ -59,19 +62,10 @@
 				<tr>
 					<td>{!!$asi->rut!!}</td>
 					<td>{!!$asi->nombre!!}</td>
-					<td> <select class="form-control" name="estado">
-					    <option value=>Realizar asistencia</option>
-						<option value=1>Presente</option>
-						<option value=0>Ausente</option>
-					</select></td>
-           		<script>
-           			temp={
-           				rut:"{!!$asi->rut!!}",
-           				nombre:"{!!$asi->nombre!!}",
-           				estado: $("#table > estado"),
-           			}
-           			alumnos.push(temp);
-           		</script>
+					<td>
+						<input type="checkbox" name="estado" value="{{$asi->id_user}}">
+					 </td>
+           		
 				</tr>
 				
 				@endforeach

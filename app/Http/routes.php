@@ -25,5 +25,6 @@ Route::resource('administracion/tutoria','TutoriaController');
 Route::resource('administracion/taller','TallerController');
 Route::resource('administracion/asistencia','AsistenciaController');
 Route::get('administracion/tutoria/asistencia/{id}','TutoriaController@crear');
+Route::get('administracion/tutoria/gestionar/{id}','TutoriaController@mostrarGestionar');
 Route::post('administracion/tutoria/asistencia','TutoriaController@nuevaAsistencia');
 

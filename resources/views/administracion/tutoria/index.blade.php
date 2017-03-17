@@ -11,7 +11,7 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th ># </th>
+					
 					<th>Grupo</th>
 					<th>Asignatura</th>
 					<th>Tutor</th>
@@ -22,13 +22,13 @@
 					@foreach ($tutorias as $post)
 						
 						<tr>
-							<td>{{ $post->id }}</td>
+							
 							<td>{{ $post->nombre_grupo }}</td>
 							<td>{{ $post->asignaturas->nombre}}</td>
 							<td>{{$post->tutores->nombre}} {{ $post->tutores->apellidos }}</td>
 							<td>
-							<a href="{{URL::action('TutoriaController@edit',$post->id)}}"><button class="btn btn-info">Editar</button></a>
-							<a href="{{URL::action('TutoriaController@crear',$post->id)}}"><button class="btn btn-info">Asistencia</button></a>
+							<a href="{{URL::action('TutoriaController@mostrarGestionar',$post->id)}}"><button class="btn btn-info">Gestionar</button></a>
+							
 							</td>
 	
 						</tr>

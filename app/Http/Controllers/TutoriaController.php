@@ -9,6 +9,7 @@ use App\Tutor;
 use App\Estudiante;
 use App\Asignatura;
 use App\Asistencia;
+use App\Fecha_Tutoria;
 
 use Session;
 use DB;
@@ -66,23 +67,17 @@ class TutoriaController extends Controller
         return view('administracion.tutoria.show')->withTutoria($tutorias);
     }
 
-     public function createAttendance($id)
-    {
-       
-         // store in the database
-        $tutorias = Tutoria::find($id);
-        $estudiantes = $tutorias->estudiantes()->toArray();
+    public function mostrarGestionar($id){
 
-        // set flash data with success message
+         $tutorias = Tutoria::find($id);
+         $estudiantes =Tutoria::find($id)->estudiantes()->orderBy('nombre')->get();
+        // //dd($tutorias);
+      
+         // return view('administracion.tutoria.asistencia.crear')->with('estudiantes',$estudiantes)->with('tutorias',$tutorias);
+         return view('administracion.tutoria.gestionar', compact('tutorias', 'estudiantes','id'));
 
-        // redirect with flash data to posts.show
-         return Redirect::to('administracion/tutoria');
-
-        
-
-        
-       // return view('administracion.tutoria.show')->withTutoria($tutorias);
     }
+
 
 
        public function crear($id)
@@ -182,7 +177,18 @@ class TutoriaController extends Controller
 
     public function nuevaAsistencia(Request $r){
 
-        echo $r->alumnos[0];
+        $tutoria = Tutoria::find($r->tutoriaId);
+
+        $fecha_tutoria= new Fecha_Tutoria;
+        $fecha_tutoria->fecha = $r->get('fecha');
+        $fecha_tutoria->periodo = $r->get('periodo');
+        //$fecha_tutoria->tutoria_id=$r->get('tutoriaId');
+        $fecha_tutoria->tutorias()->associate($tutoria);
+                                               
+        $fecha_tutoria->save();
+
+
+        
     }
 
 }
