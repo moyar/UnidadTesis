@@ -43,7 +43,7 @@
 
              <div class="form-group">
             	<button class="btn btn-primary" type="submit">Guardar</button>
-            	<a href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" class="btn btn-warning">Cancelar</a>
+            	<a href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" class="btn btn-danger">Cancelar</a>
             	
             </div>
 

@@ -24,8 +24,6 @@
 							<td>{{ $tall->id }}</td>
 							<td>{{ $tall->nombre_grupo }}</td>
 							<td>{{ $tall->categoria}}</td>
-						
-							
 						</tr>
 
 					@endforeach

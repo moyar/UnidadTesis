@@ -60,8 +60,7 @@
                   <li class="user-header">
                     
                     <p>
-                      www.incanatoit.com - Desarrollando Software
-                      <small>www.youtube.com/jcarlosad7</small>
+                      
                     </p>
                   </li>
                   
@@ -90,16 +89,13 @@
           <ul class="sidebar-menu">
             <li class="header"></li>
             
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Usuarios</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="estudiante" ><i class="fa fa-circle-o"></i> Estudiantes</a></li>
-                <li><a href="tutor"><i class="fa fa-circle-o"></i> Tutores</a></li>
-              </ul>
+            
+                <li><a href="{{action('EstudianteController@index')}}" ><i class="fa fa-circle-o"></i> Estudiantes</a></li>
+                <li><a href="{{action('TutorController@index')}}"><i class="fa fa-circle-o"></i> Tutores</a></li>
+                <li><a href="{{action('AsignaturasController@index')}}"><i class="fa fa-circle-o"></i> Asignaturas</a></li>
+                 <li><a href="{{action('TutoriaController@index')}}"><i class="fa fa-circle-o"></i> Tutorias</a></li>
+                 <li><a href="{{action('dtallerController@index')}}"><i class="fa fa-circle-o"></i> Talleres</a></li>
+              
             </li>      
           </ul>
         </section>
@@ -165,13 +161,6 @@
             $('.select2-multi').select2();
            
           </script>
-
-    
-
-  
-
-  
-
       <footer class="main-footer">
   
 

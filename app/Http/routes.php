@@ -26,5 +26,8 @@ Route::resource('administracion/taller','TallerController');
 Route::resource('administracion/asistencia','AsistenciaController');
 Route::get('administracion/tutoria/asistencia/{id}','TutoriaController@crear');
 Route::get('administracion/tutoria/gestionar/{id}','TutoriaController@mostrarGestionar');
-Route::post('administracion/tutoria/asistencia','TutoriaController@nuevaAsistencia');
-
+//Route::post('administracion/tutoria/asistencia','TutoriaController@nuevaAsistencia');
+Route::post('administracion/tutoria/asistencia','FechaTutoriasController@nuevaAsistencia');
+//Route::post('administracion/tutoria/asistencia','EstudianteFechaController@rAsistencia');
+Route::get('administracion/tutoria/asistencia/asi/{id}','TutoriaController@asisAlumno');
+Route::post('administracion/tutoria/asistencia/asi','TutoriaController@saveAlumno');
