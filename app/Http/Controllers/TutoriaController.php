@@ -160,34 +160,64 @@ class TutoriaController extends Controller
         $fecha_tutoria =Fecha_tutoria::find($r->fechaID);
         $estudiantes =Tutoria::find($r->tutoriaID)->estudiantes()->orderBy('nombre')->get();  
         
-        
-        foreach ($estudiantes as $estudiante) {
+        $est = Estudiante_fecha::with('fecha_tutorias')->where('fecha_id','=',$r->fechaID)->select('fecha_id')->count();
+        if($est>0){
+            echo("tutoria realizada");
+
+        }
+        else{
+            foreach ($estudiantes as $estudiante) {
+           
             if (in_array($estudiante->id_user,$r->estado)){
-                $estudiante_fecha = new Estudiante_fecha;
-                $estudiante_fecha->estado=1;
-                $estudiante_fecha->estudiantes()->associate($estudiante->id_user);
-                $estudiante_fecha->fecha_tutorias()->associate($fecha_tutoria);
-                $estudiante_fecha->save();
-            } 
-            else{
-                $estudiante_fecha = new Estudiante_fecha;
-                $estudiante_fecha->estado=0;
-                $estudiante_fecha->estudiantes()->associate($estudiante->id_user);
-                $estudiante_fecha->fecha_tutorias()->associate($fecha_tutoria);
-                $estudiante_fecha->save();
+                    
+                    $estudiante_fecha = new Estudiante_fecha;
+                    $estudiante_fecha->estado=1;
+                    $estudiante_fecha->estudiantes()->associate($estudiante->id_user);
+                    $estudiante_fecha->fecha_tutorias()->associate($fecha_tutoria);
+                    $estudiante_fecha->save();
+                    }
+                else{
+                    $estudiante_fecha = new Estudiante_fecha;
+                    $estudiante_fecha->estado=0;
+                    $estudiante_fecha->estudiantes()->associate($estudiante->id_user);
+                    $estudiante_fecha->fecha_tutorias()->associate($fecha_tutoria);
+                    $estudiante_fecha->save();
+                }
+                $fecha_tutoria->estado='Realizada';
+                $fecha_tutoria->save();
             }
-            $fecha_tutoria->estado='Realizada';
-            $fecha_tutoria->save();
+
         }
 
        return Redirect::to(action('TutoriaController@crear',$r->tutoriaID));
     }
 
-    public function asisAlumno(Request $r, $id_f){
+    public function asisAlumno(Request $r, $id_f)
+    {
         $fecha_tutoria=Fecha_tutoria::find($id_f);
         $tutorias=Tutoria::find($fecha_tutoria->tutoria_id);
         $estudiantes =Tutoria::find($fecha_tutoria->tutoria_id)->estudiantes()->orderBy('nombre')->get();      
        return view('administracion.tutoria.asistencia.asi', compact('tutorias', 'estudiantes','id_f','fecha_tutoria'));
+    }
+
+
+    public function eliminar(Request $r, $id_f)
+    {
+        
+        $fecha_tutoria = Fecha_tutoria::find($id_f);
+        $fecha_tutoria->delete();
+        
+        
+        return Redirect::to(action('TutoriaController@crear',$r->tutoriaId));
+       // $fecha->delete();
+        
+    }
+
+    public function editL($id_f){
+
+    
+     return view("administracion.tutoria.asistencia.edit",["estudiantes"=>Estudiante_fecha::with('estudiantes')->where('fecha_id','=',$id_f)->select('id','estado','estudiante_id','fecha_id')->get()]);
+        
     }
 
 }

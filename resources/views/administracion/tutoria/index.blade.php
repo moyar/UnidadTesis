@@ -28,11 +28,12 @@
 							<td>{{$post->tutores->nombre}} {{ $post->tutores->apellidos }}</td>
 							<td>
 							<a href="{{URL::action('TutoriaController@mostrarGestionar',$post->id)}}"><button class="btn btn-info">Gestionar</button></a>
+							<a href="" data-target="#modal-delete-{{$post->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							
 							</td>
 	
 						</tr>
-
+						@include('administracion.tutoria.modal')
 					@endforeach
 
 			</table>

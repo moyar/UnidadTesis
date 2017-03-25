@@ -31,3 +31,7 @@ Route::post('administracion/tutoria/asistencia','FechaTutoriasController@nuevaAs
 //Route::post('administracion/tutoria/asistencia','EstudianteFechaController@rAsistencia');
 Route::get('administracion/tutoria/asistencia/asi/{id}','TutoriaController@asisAlumno');
 Route::post('administracion/tutoria/asistencia/asi','TutoriaController@saveAlumno');
+
+Route::delete('administracion/tutoria/asistencia/{id}','TutoriaController@eliminar');
+
+Route::resource('administracion/tutoria/asistencia/edit','TutoriaController@editL');

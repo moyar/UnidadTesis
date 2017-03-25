@@ -26,10 +26,14 @@
 						<td>{{$fe->periodo}} </td>
 						<td>{{$fe->estado}}</td>
 						<td>
-							<a href="{{URL::action('TutoriaController@asisAlumno',$fe->id_f)}}"><button class="btn btn-info">Alumnos</button></a>
+							<a href="{{URL::action('TutoriaController@asisAlumno',$fe->id_f)}}"><button class="btn btn-info">Realizar Asistencia</button></a>
+							<a href="" data-target="#modal-delete-{{$fe->id_f}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+							<a href="{{URL::action('TutoriaController@editL',$fe->id_f)}}"><button class="btn btn-warning">Editar Asistencia</button></a>
 						</td>
 
 				   </tr>
+				   
+				   @include('administracion.tutoria.asistencia.modal')
 				   @endforeach
 			</table>
 			</table>
