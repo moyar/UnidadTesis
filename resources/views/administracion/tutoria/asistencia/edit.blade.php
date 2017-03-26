@@ -1,9 +1,21 @@
 @extends ('layouts.admin')
-
 @section ('contenido')
-{!!Form::open(array('url'=>'administracion/tutoria/asistencia/edit','method'=>'PATCH','autocomplete'=>'off'))!!}
+
+
+
+
+		{!!Form::open(array('action'=>['TutoriaController@updateL',$fecha_tutoria->id_f],'method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
 
+<input name="_method" type="hidden" value="PUT">
+<div class="row">
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+		<h3>Listado de Alumnos </h3>
+		<h5 class="col-md-6">{{$tutorias->asignaturas->nombre}}</h5>
+		<h5 class="col-md-6"> Tutor: {{$tutorias->tutores->nombre}} {{$tutorias->tutores->apellidos}}</h5>
+		<h3> </h3>
+	</div>
+</div>
 <div class="row">
 		
          <input type="hidden" name="_token" value="{!! csrf_token() !!}">
@@ -19,20 +31,33 @@
 				</thead>
                @foreach ($estudiantes as $asi)
 				<tr>
-					<td>{!!$asi->rut!!}</td>
-					<td>{!!$asi->nombre!!}</td>
+					<td>{{$asi->estudiantes->rut}}</td>
+					<td>{{$asi->estudiantes->nombre}}</td>
 					<td>
-						<input type="checkbox" name="estado[]" value="{{$asi->id_user}}">
+					@if($asi->estado==1)
+						<input type="checkbox" name="estado[]" value="{{$asi->estudiantes->id_user}}" checked>
+					@elseif($asi->estado==0)
+							<input type="checkbox" name="estado[]" value="{{$asi->estudiantes->id_user}}">
+					@endif
 					 </td>
-           		
+					
 				</tr>
-				
 				@endforeach
+				
+				
 			</table>
-		<button class="btn btn-info col-md-6 " type="submit">Guardar</button>
+
+		<div>
+		<a href=""><button class="btn btn-info  " type="submit">Guardar</button></a>
+		<a href=""><button class="btn btn-danger " type="cancel">Cancelar</button></a>
+		</div>
 		</div>
 	</div>
 	
 </div>
 {!!Form::close()!!}	
+
+
+
+
 @endsection

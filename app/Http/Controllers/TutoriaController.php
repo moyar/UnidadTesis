@@ -85,7 +85,7 @@ class TutoriaController extends Controller
 
     public function edit($id)
     {
-        // find the post in the database and save as a var
+       
         $tutorias = Tutoria::find($id);
         $asignaturas = Asignatura::all();
         $tutores = Tutor::all();
@@ -98,11 +98,14 @@ class TutoriaController extends Controller
             $tut[$tutor->id_tutor] = $tutor->nombre;
         }
 
+
+
         $estudiantes = Estudiante::all();
         $estu = array();
         foreach ($estudiantes as $estudiante) {
             $estu[$estudiante->id_user] = $estudiante->nombre;
         }
+
 
         return view('administracion.tutoria.edit')->withTutorias($tutorias)->withAsignaturas($asig)->withTutores($tut)->withEstudiantes($estu);
     }
@@ -168,7 +171,19 @@ class TutoriaController extends Controller
         else{
             foreach ($estudiantes as $estudiante) {
            
-            if (in_array($estudiante->id_user,$r->estado)){
+            if($r->estado== null){
+                    $fecha_tutoria->estado='Realizada';
+                    $fecha_tutoria->save();
+                    $estudiante_fecha = new Estudiante_fecha;
+                    $estudiante_fecha->estado=0;
+                    $estudiante_fecha->estudiantes()->associate($estudiante->id_user);
+                    $estudiante_fecha->fecha_tutorias()->associate($fecha_tutoria);
+                    $estudiante_fecha->save();
+
+
+            }
+            else{
+                if (in_array($estudiante->id_user,$r->estado)){
                     
                     $estudiante_fecha = new Estudiante_fecha;
                     $estudiante_fecha->estado=1;
@@ -185,6 +200,8 @@ class TutoriaController extends Controller
                 }
                 $fecha_tutoria->estado='Realizada';
                 $fecha_tutoria->save();
+            }
+
             }
 
         }
@@ -207,17 +224,58 @@ class TutoriaController extends Controller
         $fecha_tutoria = Fecha_tutoria::find($id_f);
         $fecha_tutoria->delete();
         
-        
+    
         return Redirect::to(action('TutoriaController@crear',$r->tutoriaId));
-       // $fecha->delete();
+  
         
     }
 
     public function editL($id_f){
 
-    
-     return view("administracion.tutoria.asistencia.edit",["estudiantes"=>Estudiante_fecha::with('estudiantes')->where('fecha_id','=',$id_f)->select('id','estado','estudiante_id','fecha_id')->get()]);
+        $fecha_tutoria = Fecha_tutoria::find($id_f);
+        $tutorias= Tutoria::find($fecha_tutoria->tutoria_id);
+        $estudiante_fecha = Estudiante_fecha::with('fecha_tutorias')->where('fecha_id','=',$id_f)->get();
+        $estudiantes= Estudiante_fecha::with('estudiantes')->where('fecha_id','=',$id_f)->get();
+
+
+        //dd($estudiantes);
         
+
+
+
+
+         return view('administracion.tutoria.asistencia.edit', compact('tutorias', 'tem','estudiantes','id_f','fecha_tutoria'));
+        
+    }
+
+
+    public function updateL(Request $r, $id_f){
+        $estudiantes= Estudiante_fecha::with('estudiantes')->where('fecha_id','=',$id_f)->get();
+      
+           foreach ($estudiantes as $estudiante) {
+           
+            if($r->estado== null){
+                    $estudiante->estado=0;
+                    $estudiante->save();
+
+            }
+            else{
+                if (in_array($estudiante->estudiante_id,$r->estado)){
+                    $estudiante->estado=1;
+                    $estudiante->save();
+                    }
+                else{
+                    
+                    $estudiante->estado=0;
+                    $estudiante->save();
+                }
+                
+            }
+
+         }
+        
+            return Redirect::to(action('TutoriaController@crear',$r->tutoriaID));
+
     }
 
 }

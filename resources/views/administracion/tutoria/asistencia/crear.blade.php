@@ -39,8 +39,8 @@
 			</div>
 			<div class="form-group col-md-4">
 			<label class="col-md-12">Opciónes</label>
-			<button class="btn btn-info col-md-6 " type="submit">Guardar</button>
-			<button href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" type="button" class="btn btn-danger col-md-6">Cancelar</button>
+			<button class="btn btn-info  " type="submit">Guardar</button>
+			<button href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" type="button" class="btn btn-danger ">Cancelar</button>
 			</div>
 
 {!!Form::close()!!}	

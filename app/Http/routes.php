@@ -34,4 +34,5 @@ Route::post('administracion/tutoria/asistencia/asi','TutoriaController@saveAlumn
 
 Route::delete('administracion/tutoria/asistencia/{id}','TutoriaController@eliminar');
 
-Route::resource('administracion/tutoria/asistencia/edit','TutoriaController@editL');
+Route::get('administracion/tutoria/asistencia/edit/{id}','TutoriaController@editL');
+Route::put('administracion/tutoria/asistencia/edit/{id}','TutoriaController@updateL');
