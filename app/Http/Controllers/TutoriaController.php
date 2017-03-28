@@ -237,13 +237,7 @@ class TutoriaController extends Controller
         $estudiante_fecha = Estudiante_fecha::with('fecha_tutorias')->where('fecha_id','=',$id_f)->get();
         $estudiantes= Estudiante_fecha::with('estudiantes')->where('fecha_id','=',$id_f)->get();
 
-
         //dd($estudiantes);
-        
-
-
-
-
          return view('administracion.tutoria.asistencia.edit', compact('tutorias', 'tem','estudiantes','id_f','fecha_tutoria'));
         
     }
@@ -260,7 +254,7 @@ class TutoriaController extends Controller
 
             }
             else{
-                if (in_array($estudiante->estudiante_id,$r->estado)){
+                if (in_array($estudiante->estudiante_id, $r->estado)){
                     $estudiante->estado=1;
                     $estudiante->save();
                     }
@@ -276,6 +270,38 @@ class TutoriaController extends Controller
         
             return Redirect::to(action('TutoriaController@crear',$r->tutoriaID));
 
+    }
+    public function ver($id){
+         // echo($id);
+         $tutorias = Tutoria::find($id);
+         $estu =Tutoria::find($id)->estudiantes()->get();
+         ///dd($estu);
+         $fecha_tutoria =Fecha_tutoria::where('tutoria_id','=',$id)->get();
+         //echo($fecha_tutoria); 
+         // $fe =Fecha_tutoria::where('tutoria_id','=',$id)->select('id_f')->get(); 
+          //$tem=array();
+         $estFinal = array();
+         $indice = 0;
+         foreach ($fecha_tutoria as $a) {
+                  $estudiantes= Estudiante_fecha::where('fecha_id','=',$a->id_f)->get();
+                  $estFinal[$indice] = $estudiantes;
+                  $indice+=1;
+                  $estudi= Estudiante_fecha::where('fecha_id','=',$a->id_f)->select('estado')->get();
+      
+               
+        }
+       // dd($estFinal);
+        //echo ($estFinal[0][0]->estado);   
+        //echo($estudiantes);
+        return view('administracion.tutoria.ver',compact('tutorias','estFinal','fecha_tutoria','estu'));
+        
+        
+         
+
+          
+         
+
+       
     }
 
 }

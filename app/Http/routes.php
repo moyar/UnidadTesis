@@ -36,3 +36,5 @@ Route::delete('administracion/tutoria/asistencia/{id}','TutoriaController@elimin
 
 Route::get('administracion/tutoria/asistencia/edit/{id}','TutoriaController@editL');
 Route::put('administracion/tutoria/asistencia/edit/{id}','TutoriaController@updateL');
+
+Route::get('administracion/tutoria/ver/{id}','TutoriaController@ver');
