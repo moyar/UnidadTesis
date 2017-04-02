@@ -12,7 +12,7 @@ class Asignatura extends Model
 
     public function tutorias()
     {
-    	return $this->belongsTo('App\Tutoria');
+    	return $this->hasMany('App\Tutoria');
     }
 
  }

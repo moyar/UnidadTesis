@@ -94,7 +94,7 @@
                 <li><a href="{{action('TutorController@index')}}"><i class="fa fa-circle-o"></i> Tutores</a></li>
                 <li><a href="{{action('AsignaturasController@index')}}"><i class="fa fa-circle-o"></i> Asignaturas</a></li>
                  <li><a href="{{action('TutoriaController@index')}}"><i class="fa fa-circle-o"></i> Tutorias</a></li>
-                 <li><a href="{{action('dtallerController@index')}}"><i class="fa fa-circle-o"></i> Talleres</a></li>
+                
               
             </li>      
           </ul>

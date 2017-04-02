@@ -10,9 +10,12 @@ class Categoria extends Model
      protected $primaryKey='id_categoria';
      public $timestamps=false;
      
-    public function tallers()
+   
+
+     public function talleres()
     {
-        return $this->hasMany('App\Taller');
+    	return $this->belongTo('App\Taller');
     }
+
 
 }

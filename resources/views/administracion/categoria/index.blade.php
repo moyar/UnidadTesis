@@ -2,8 +2,8 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Asignaturas <a href="dtaller/create"><button class="btn btn-success">Nuevo</button></a></h3>
-		@include('administracion.dtaller.search')
+		<h3>Listado de Talleres <a href="categoria/create"><button class="btn btn-success">Nuevo</button></a></h3>
+		@include('administracion.categoria.search')
 	</div>
 </div>
 
@@ -16,21 +16,21 @@
 					<th>Nombre</th>
 					<th>Opciones</th>
 				</thead>
-               @foreach ($dtaller as $use)
+               @foreach ($categoria as $use)
 				<tr>
 					<td>{{ $use->id_categoria}}</td>
 					<td>{{ $use->nombre}}</td>
 					
 					<td>
-						<a href="{{URL::action('dtallerController@edit',$use->id_categoria)}}"><button class="btn btn-info">Editar</button></a>
+						<a href="{{URL::action('CategoriaController@edit',$use->id_categoria)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$use->id_categoria}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 					</td>
 				</tr>
-				@include('administracion.dtaller.modal')
+				@include('administracion.categoria.modal')
 				@endforeach
 			</table>
 		</div>
-		{{$dtaller->render()}}
+		{{$categoria->render()}}
 	</div>
 </div>
 

@@ -4,9 +4,9 @@
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Asistencia del curso</h3>
-		<h4>{{$tutorias->asignaturas->nombre}}</h4>
-		<h4>{{$tutorias->tutores->nombre}} {{$tutorias->tutores->apellidos}}</h4>
-		<h4>{{$fecha_tutoria->count()}}</h4>
+		<h4>{{$talleres->categorias->nombre}}</h4>
+		
+		<h4>{{$fecha_taller->count()}}</h4>
 	</div>
 </div>
 <style type="text/css">
@@ -37,8 +37,8 @@ th{
 <?php 
 	$contador=0;
 	$conta=0;
-	$total=$fecha_tutoria->count();
-	$ausente=0;
+	$total=$fecha_taller->count();
+	$aus=0;
 	$porcentaje=0;
 
  ?>
@@ -49,7 +49,7 @@ th{
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
 					<th class="col-md-2" >Estudiantes</th>
-					@foreach ($fecha_tutoria as $e)
+					@foreach ($fecha_taller as $e)
 						<th style="width:10px" class="col-md-4">
 						<center>
 							<p class="rotar">
@@ -77,15 +77,12 @@ th{
 							<center>P</center> 
 							<?php 
 								$conta= $conta+1;
-								$ausente=$total-$conta;
 								if($conta==0){
 									$porcentaje=0;
 								}
 								else{
-									$porcentaje=($conta*100)/$total ;
+									$porcentaje=(($conta * 100)/$total);
 								}
-								
-								
 
 							 ?>
 							@else <center>A</center>
@@ -97,8 +94,8 @@ th{
 					@endforeach
 					
 					<td><center>{{$conta}}</center></td>
-					<td><center>{{$ausente}}</center></td>
-					<td><center>{{round($porcentaje)}}%</center></td>
+					<td><center>{{$total-$conta}}</center></td>
+					<td><center>{{round($porcentaje=(($conta * 100)/$total))}}%</center></td>
 					<?php $contador+=1;?>
 					<?php 
 								$conta= 0;

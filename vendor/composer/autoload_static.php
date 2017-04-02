@@ -269,9 +269,11 @@ class ComposerStaticInit7a3c788a24e32d61a24784fed3ec6b8e
     );
 
     public static $classMap = array (
-        'CreateEstudianteTallerTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_01_185024_create_estudiante_taller_table.php',
+        'Categoria' => __DIR__ . '/../..' . '/database/migrations/2017_04_02_034952_categoria.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'EstudianteFecha' => __DIR__ . '/../..' . '/database/migrations/2017_03_16_192900_estudiante_fecha.php',
+        'EstudianteFechaT' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_194617_EstudianteFechaT.php',
+        'FechaTaller' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_194536_FechaTaller.php',
         'FechaTutoria' => __DIR__ . '/../..' . '/database/migrations/2017_03_16_192716_fecha_tutoria.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
@@ -782,6 +784,7 @@ class ComposerStaticInit7a3c788a24e32d61a24784fed3ec6b8e
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Taller' => __DIR__ . '/../..' . '/database/migrations/2017_04_02_040413_taller.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
     );

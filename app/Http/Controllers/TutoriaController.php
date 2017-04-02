@@ -26,7 +26,8 @@ class TutoriaController extends Controller
     {
         $tutores = Tutor::all();
         $tutorias = Tutoria::orderBy('id', 'desc')->paginate(10);
-     
+        
+        
 
         return view('administracion.tutoria.index')->withTutorias($tutorias)->withTutores($tutores);
     }
@@ -272,14 +273,10 @@ class TutoriaController extends Controller
 
     }
     public function ver($id){
-         // echo($id);
+
          $tutorias = Tutoria::find($id);
          $estu =Tutoria::find($id)->estudiantes()->get();
-         ///dd($estu);
          $fecha_tutoria =Fecha_tutoria::where('tutoria_id','=',$id)->get();
-         //echo($fecha_tutoria); 
-         // $fe =Fecha_tutoria::where('tutoria_id','=',$id)->select('id_f')->get(); 
-          //$tem=array();
          $estFinal = array();
          $indice = 0;
          foreach ($fecha_tutoria as $a) {
@@ -291,16 +288,8 @@ class TutoriaController extends Controller
                
         }
        // dd($estFinal);
-        //echo ($estFinal[0][0]->estado);   
-        //echo($estudiantes);
+      
         return view('administracion.tutoria.ver',compact('tutorias','estFinal','fecha_tutoria','estu'));
-        
-        
-         
-
-          
-         
-
        
     }
 

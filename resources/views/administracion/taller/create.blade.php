@@ -3,7 +3,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nueva Asignatura</h3>
+			<h3>Nuevo Taller</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -16,19 +16,21 @@
 
 			{!!Form::open(array('url'=>'administracion/taller','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
+            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="form-group">
             	<label for="nombre_grupo">Grupo </label>
             	<input type="text" name="nombre_grupo" class="form-control" placeholder="nombre del grupo...">
             </div>
            <div class="form-group">
-           <label for = "categorias">Talleres</label>
+           <label for = "categoria">Taller</label>
            <select class="form-control" name="categoria_id">
-					@foreach($categoria as $asi)
+					@foreach($categorias as $asi)
 						<option value='{{ $asi->id_categoria }}'>{{ $asi->nombre}}</option>
 					@endforeach
 
 			</select>
 			</div>
+			
            <div class="form-group">
  			{{ Form::label('estudiantes', 'Estudiantes:') }}
 				<select class="form-control select2-multi" name="tags[]" multiple="multiple">
@@ -40,10 +42,11 @@
 				</div>
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Guardar</button>
-            	<button class="btn btn-danger" type="reset">Cancelar</button>
+            	{!! Html::link('administracion/categoria', 'Cancelar',  array('class' => 'btn btn-danger')) !!}
+            			
             </div>
 
-			{!!Form::close()!!}		
+			{!!Form::close()!!}
             
 		</div>
 	</div>
