@@ -18,6 +18,7 @@
             {{Form::token()}}
           
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <input type="hidden" name="tutoriaId" value="{{$tutorias->id}}">
             <div class="form-group col-md-4">
             	<label for="fecha">Fecha </label>

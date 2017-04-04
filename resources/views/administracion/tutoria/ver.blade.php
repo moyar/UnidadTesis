@@ -6,7 +6,7 @@
 		<h3>Asistencia del curso</h3>
 		<h4>{{$tutorias->asignaturas->nombre}}</h4>
 		<h4>{{$tutorias->tutores->nombre}} {{$tutorias->tutores->apellidos}}</h4>
-		<h4>{{$fecha_tutoria->count()}}</h4>
+		<h4>Numero de Sesiones: {{$fecha_tutoria->count()}}</h4>
 	</div>
 </div>
 <style type="text/css">
@@ -33,7 +33,10 @@ th{
 
 </style>
 
-
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Asistencia General</a></li>
+    <li><a data-toggle="tab" href="#menu1">Ausencias</a></li>
+  </ul>
 <?php 
 	$contador=0;
 	$conta=0;
@@ -41,79 +44,144 @@ th{
 	$ausente=0;
 	$porcentaje=0;
 
+	$cont=0;
+	$con=0;
+	$aus=0;
+
  ?>
 
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered table-condensed table-hover">
-				<thead>
-					<th class="col-md-2" >Estudiantes</th>
-					@foreach ($fecha_tutoria as $e)
-						<th style="width:10px" class="col-md-4">
-						<center>
-							<p class="rotar">
-						  {{$e->fecha}}</p>
-						</center>
+<div class="tab-content">
+
+<div id="home" class="tab-pane fade in active">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered table-condensed table-hover">
+					<thead>
+						<th class="col-md-2" >Estudiantes</th>
+						@foreach ($fecha_tutoria as $e)
+							<th style="width:10px" class="col-md-4">
+							<center>
+								<p class="rotar">
+							  {{$e->fecha}}</p>
+							</center>
+							
+							</th>
+
+						@endforeach
+						<th class="col-md-2">Presente</th>
+						<th class="col-md-2">Ausente</th>
+						<th class="col-md-2">% Asistencia</th>
+					</thead>
+					
+					<tbody>
+					  
+					@foreach($estu as $es)
+					<tr>
+						<td><center>{{$es->nombre}} {{$es->apellidos}}</center></td>
+						@foreach($estFinal as $fe)
 						
-						</th>
+							
+							<td>
+								@if(($fe[$contador]->estado)==1)
+								<center>P</center> 
+								<?php 
+									$conta= $conta+1;
+									
+									if($conta==0){
+										
+										$porcentaje=0;
+									}
+									else{
+										$porcentaje=($conta*100)/$total ;
+									}
+									
+									
+
+								 ?>
+								@else <center>A</center>
+								@endif
+
+							</td>
+
+
+						@endforeach
+						
+						<td><center>{{$conta}}</center></td>
+						<td><center>{{$ausente=$total-$conta}}</center></td>
+						<td><center>{{round($porcentaje)}}%</center></td>
+						<?php $contador+=1;?>
+						<?php 
+									$conta= 0;
+						 ?>
+					</tr>
 
 					@endforeach
-					<th class="col-md-2">Presente</th>
-					<th class="col-md-2">Ausente</th>
-					<th class="col-md-2">% Asistencia</th>
-				</thead>
-				
-				<tbody>
-				  
-				@foreach($estu as $es)
-				<tr>
-					<td><center>{{$es->nombre}}</center></td>
-					@foreach($estFinal as $fe)
+
+					</tbody>
 					
-						
-						<td>
-							@if(($fe[$contador]->estado)==1)
-							<center>P</center> 
-							<?php 
-								$conta= $conta+1;
-								$ausente=$total-$conta;
-								if($conta==0){
-									$porcentaje=0;
-								}
-								else{
-									$porcentaje=($conta*100)/$total ;
-								}
-								
-								
-
-							 ?>
-							@else <center>A</center>
-							@endif
-
-						</td>
-
-
-					@endforeach
 					
-					<td><center>{{$conta}}</center></td>
-					<td><center>{{$ausente}}</center></td>
-					<td><center>{{round($porcentaje)}}%</center></td>
-					<?php $contador+=1;?>
-					<?php 
-								$conta= 0;
-					 ?>
-				</tr>
-
-				@endforeach
-
-				</tbody>
-				
-				
-			</table>
-			</table>
+				</table>
+				</table>
+			</div>
+		 
 		</div>
-	 
+	</div>
+</div>
+
+<div id="menu1" class="tab-pane ">
+  <div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered table-condensed table-hover">
+					<thead>
+						<th class="col-md-2" >Estudiantes</th>
+						<th class="col-md-2">Correo</th>
+						<th class="col-md-2">Presente</th>
+						<th class="col-md-2">Ausente</th>
+						
+					</thead>
+					
+					<tbody>
+					  
+					@foreach($estu as $es)
+				    
+					<tr>
+						@foreach($estFinal as $fee)
+						
+							<?php 
+							if(($fee[$cont]->estado)==1){
+								
+									$con= $con+1;
+							}
+							$aus=$total-$con;
+							 ?>	
+						@endforeach
+						@if(($aus>2))
+						<td><center>{{$es->nombre}} {{$es->apellidos}}</center></td>
+						<td><center>{{$es->email}}</center></td>
+						<td><center>{{$con}}</center></td>
+					    <td><center>{{$aus}}</center></td>
+					    @endif
+					
+				
+						
+						</tr>
+
+						<?php $cont+=1;?>
+					 
+						<?php 
+									$con= 0;
+						 ?>
+						@endforeach
+					</tbody>
+					
+					
+				</table>
+				</table>
+			</div>
+		 
+		</div>
 	</div>
 </div>
 
