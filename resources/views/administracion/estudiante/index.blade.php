@@ -16,6 +16,7 @@
 					<th>Rut</th>
 					<th>Nombres</th>
 					<th>Apellidos</th>
+					<th>Carrera</th>
 					<th>Email</th>
 					<th>Opciones</th>
 				</thead>
@@ -25,6 +26,7 @@
 					<td>{{ $use->rut}}</td>
 					<td>{{ $use->nombre}}</td>
 					<td>{{ $use->apellidos}}</td>
+					<td>{{$use->carrera}}</td>
 					<td>{{ $use->email}}</td>
 					<td>
 

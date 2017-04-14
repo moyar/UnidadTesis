@@ -22,17 +22,12 @@ class EstudianteController extends Controller
         {
             $query=trim($request->get('searchText'));
             $usuarios=DB::table('estudiantes')
-            ->where('nombre','LIKE','%'.$query.'%')
-            ->where ('estado','=','Activo')
-            ->orwhere('rut','LIKE','%'.$query.'%')
-            ->where ('estado','=','Activo')
-            ->orwhere('apellidos','LIKE','%'.$query.'%')
-            ->where ('estado','=','Activo')
-            ->orwhere('telefono','LIKE','%'.$query.'%')
-            ->where ('estado','=','Activo')
-            ->orwhere('email','LIKE','%'.$query.'%')
-           ->where ('estado','=','Activo')
-           
+            ->where('nombre','LIKE','%'.$query.'%')          
+            ->orwhere('rut','LIKE','%'.$query.'%')            
+            ->orwhere('apellidos','LIKE','%'.$query.'%')           
+            ->orwhere('telefono','LIKE','%'.$query.'%')            
+            ->orwhere('email','LIKE','%'.$query.'%') 
+            ->orwhere('carrera','LIKE','%'.$query.'%')           
             ->orderBy('id_user','desc')
             ->paginate(10);
             return view('administracion.estudiante.index',["users"=>$usuarios,"searchText"=>$query]);
@@ -48,9 +43,18 @@ class EstudianteController extends Controller
         $usuarios->rut=$request->get('rut');
         $usuarios->nombre=$request->get('nombre');
         $usuarios->apellidos=$request->get('apellidos');
-        $usuarios->estado='Activo';
         $usuarios->telefono=$request->get('telefono');
         $usuarios->email=$request->get('email');
+        $usuarios->carrera=$request->get('carrera');
+        $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
+        $usuarios->sexo=$request->get('genero');
+        $usuarios->tipo_ingreso=$request->get('ingreso');
+        $usuarios->año_ingreso=$request->get('año_ingreso');
+        $usuarios->ciudad_procedencia=$request->get('ciudadP');
+        $usuarios->quintil=$request->get('quintil');
+        $usuarios->nombre_apoderado=$request->get('nombresA');
+        $usuarios->apellidos_apoderado=$request->get('apellidosA');
+        $usuarios->telefono_apoderado=$request->get('telefonoA');
         $usuarios->save();
         return Redirect::to('administracion/estudiante');
     }
@@ -71,9 +75,18 @@ class EstudianteController extends Controller
         $usuarios->rut=$request->get('rut');
         $usuarios->nombre=$request->get('nombre');
         $usuarios->apellidos=$request->get('apellidos');
-
         $usuarios->telefono=$request->get('telefono');
         $usuarios->email=$request->get('email');
+        $usuarios->carrera=$request->get('carrera');
+        $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
+        $usuarios->sexo=$request->get('genero');
+        $usuarios->tipo_ingreso=$request->get('ingreso');
+        $usuarios->año_ingreso=$request->get('año_ingreso');
+        $usuarios->ciudad_procedencia=$request->get('ciudadP');
+        $usuarios->quintil=$request->get('quintil');
+        $usuarios->nombre_apoderado=$request->get('nombresA');
+        $usuarios->apellidos_apoderado=$request->get('apellidosA');
+        $usuarios->telefono_apoderado=$request->get('telefonoA');
         $usuarios->update();
         return Redirect::to('administracion/estudiante');
     }
@@ -82,8 +95,7 @@ class EstudianteController extends Controller
         $usuarios=Estudiante::findOrFail($id);
        // $usuarios->delete();
         $usuarios->tutorias()->detach();
-        $usuarios->estado='inactivo';
-        $usuarios->update();
+        $usuarios->delete();
         return Redirect::to('administracion/estudiante');
     }
 }

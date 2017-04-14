@@ -90,10 +90,27 @@
             <li class="header"></li>
             
             
-                <li><a href="{{action('EstudianteController@index')}}" ><i class="fa fa-circle-o"></i> Estudiantes</a></li>
+                <li><a href="{{action('EstudianteController@index')}}" ><i class="fa fa-circle-o"></i> Estudiantes</a>
+                    <ul>
+                       <li><a href="{{action('EstudianteController@index')}}">Indice de Estudiantes</a></li>
+                       <li><a href="{{action('EstudianteController@create')}}">Nuevo Estudiante</a></li>
+                    </ul>
+                </li>
+
+
+
+
                 <li><a href="{{action('TutorController@index')}}"><i class="fa fa-circle-o"></i> Tutores</a></li>
                 <li><a href="{{action('AsignaturasController@index')}}"><i class="fa fa-circle-o"></i> Asignaturas</a></li>
-                 <li><a href="{{action('TutoriaController@index')}}"><i class="fa fa-circle-o"></i> Tutorias</a></li>
+                 <li><a href="{{action('TutoriaController@index')}}"><i class="fa fa-circle-o"></i> Tutorias</a>
+
+                  <ul>
+                       <li><a href="{{action('TutoriaController@index')}}">Indice de Tutorias</a></li>
+                       <li><a href="{{action('TutoriaController@create')}}">Nueva Tutoria</a></li>
+                    </ul>
+
+
+                 </li>
                 
               
             </li>      

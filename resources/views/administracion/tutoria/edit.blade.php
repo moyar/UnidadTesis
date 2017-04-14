@@ -15,7 +15,7 @@
 
 	{!!Form::model($tutorias,['method'=>'PUT','route'=>['administracion.tutoria.update',$tutorias->id]])!!}
             {{Form::token()}}
-            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
            
              <div class="form-group">
             	<label for="nombre_grupo">Grupo </label>
