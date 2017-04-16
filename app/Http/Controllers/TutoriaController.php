@@ -283,11 +283,11 @@ class TutoriaController extends Controller
                   $estudiantes= Estudiante_fecha::where('fecha_id','=',$a->id_f)->get();
                   $estFinal[$indice] = $estudiantes;
                   $indice+=1;
-                  $estudi= Estudiante_fecha::where('fecha_id','=',$a->id_f)->select('estado')->get();
+                  
       
                
         }
-       // dd($estFinal);
+        //dd($estFinal);
       
         return view('administracion.tutoria.ver',compact('tutorias','estFinal','fecha_tutoria','estu'));
        

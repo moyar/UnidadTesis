@@ -16,7 +16,6 @@ th{
     text-align:center;
     height:100px;
     vertical-align:bottom; 
-
 }
 	.rotar 
 		{
@@ -29,8 +28,6 @@ th{
 		    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 		
 }
-
-
 </style>
 
 <ul class="nav nav-tabs">
@@ -43,11 +40,9 @@ th{
 	$total=$fecha_tutoria->count();
 	$ausente=0;
 	$porcentaje=0;
-
 	$cont=0;
 	$con=0;
 	$aus=0;
-
  ?>
 
 <div class="tab-content">
@@ -97,7 +92,6 @@ th{
 									}
 									
 									
-
 								 ?>
 								@else <center>A</center>
 								@endif

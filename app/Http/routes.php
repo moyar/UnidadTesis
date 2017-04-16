@@ -49,3 +49,5 @@ Route::delete('administracion/taller/asistencia/{id}','TallerController@eliminar
 Route::get('administracion/taller/asistencia/edit/{id}','TallerController@editL');
 Route::put('administracion/taller/asistencia/edit/{id}','TallerController@updateL');
 Route::get('administracion/taller/ver/{id}','TallerController@ver');
+//estudiante
+Route::get('administracion/estudiante/datos/{id}','EstudianteController@datos');

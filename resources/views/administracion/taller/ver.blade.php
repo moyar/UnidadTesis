@@ -41,7 +41,7 @@ th{
 	$contador=0;
 	$conta=0;
 	$total=$fecha_taller->count();
-	
+	$ausente=0;
 	$porcentaje=0;
 
 	$cont=0;
@@ -90,8 +90,11 @@ th{
 										$porcentaje=0;
 									}
 									else{
+										if($conta==0) $porcentaje=0;
+										else
 										$porcentaje=(($conta * 100)/$total);
 									}
+									$ausente=$total-$conta;
 
 								 ?>
 								@else <center>A</center>
@@ -103,8 +106,8 @@ th{
 						@endforeach
 						
 						<td><center>{{$conta}}</center></td>
-						<td><center>{{$total-$conta}}</center></td>
-						<td><center>{{round($porcentaje=(($conta * 100)/$total))}}%</center></td>
+						<td><center>{{$ausente}}</center></td>
+						<td><center>{{round($porcentaje)}}%</center></td>
 						<?php $contador+=1;?>
 						<?php 
 									$conta= 0;

@@ -34,7 +34,7 @@
 
 						<a href="{{URL::action('EstudianteController@edit',$use->id_user)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$use->id_user}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
-                         <a><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a>
+                         <a href="{{URL::action('EstudianteController@datos',$use->id_user)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a>
                          
 					</td>
 				</tr>
