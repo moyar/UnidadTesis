@@ -14,13 +14,75 @@
 <div class="tab-content">
 
 <div id="home" class="tab-pane fade in active">
-      <div class="row">
-                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                               
-                  <h5>Aqui va la ficha estudiantil</h5>
-                  </div>
-                  
+  
+
+        <form>
+              <div class="form-group">
+               <label  class="control-label col-xs-2">Rut:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->rut}}</p>
+              </div>
+               <label  class="control-label col-xs-2">Nombre:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->nombre}}</p>
+              </div>
+               <label class="control-label col-xs-2">Apellidos:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->apellidos}}</p>
+              </div>
+               <label  class="control-label col-xs-2">Telefono:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->telefono}}</p>
+              </div>
+               <label  class="control-label col-xs-2">Correo:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->email}}</p>
+              </div>
+               <label  class="control-label col-xs-2">Carrera:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->carrera}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Fecha de Nacimiento:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->fecha_nacimiento}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Genero:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->sexo}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Tipo de Ingreso:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->tipo_ingreso}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Año Ingreso:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->año_ingreso}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Ciudad de Procedencia:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->ciudad_procedencia}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Quintil:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->quintil}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Nombre Apoderado:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->nombre_apoderado}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Apellidos Apoderado:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->apellidos_apoderado}}</p>
+              </div>
+                <label  class="control-label col-xs-2">Telefono Apoderado:</label>
+              <div class="col-xs-10">
+                  <p class="form-control-static">{{$estudiante->telefono_apoderado}}</p>
+              </div>
             </div>
+
+        </form>
+        
+    
 </div>
 
 <style type="text/css">
@@ -81,16 +143,16 @@ th{
             <td><center>{{$es->asignaturas->nombre}}</center></td>
             <td><center>{{$es->tutores->nombre}} {{$es->tutores->apellidos}}</center></td>
             <td><center>{{$es->nombre_grupo}}</center></td>  
-            <td>{{$estFinal[$contador]}}</td>
-            <td>{{$asis[$contador]}}</td>
-            <td>{{$estFinal[$contador] - $asis[$contador]}}</td>
+            <td><center>{{$estFinal[$contador]}}</center></td>
+            <td><center>{{$asis[$contador]}}</center></td>
+            <td><center>{{$estFinal[$contador] - $asis[$contador]}}</center></td>
             <?php 
                if($asis[$contador]==0)
                 $porcentaje=0;
                else
                 $porcentaje=($asis[$contador]*100)/$estFinal[$contador];
              ?>
-            <td>{{round($porcentaje)}}%</td>
+            <td><center>{{round($porcentaje)}}%</center></td>
 
                <?php 
             $contador= $contador + 1;
@@ -129,16 +191,16 @@ th{
           <tr>       
             <td><center>{{$ees->categorias->nombre}}</center></td>
             <td><center>{{$ees->nombre_grupo}}</center></td>  
-            <td>{{$estFinal2[$contador2]}}</td>
-            <td>{{$asis2[$contador2]}}</td>
-            <td>{{$estFinal2[$contador2] - $asis2[$contador2]}}</td>
+            <td><center>{{$estFinal2[$contador2]}}</center></td>
+            <td><center>{{$asis2[$contador2]}}</center></td>
+            <td><center>{{$estFinal2[$contador2] - $asis2[$contador2]}}</center></td>
               <?php 
                if($asis2[$contador2]==0)
                 $porcentaje2=0;
                else
                 $porcentaje2=($asis2[$contador2]*100)/$estFinal2[$contador2];
              ?>
-            <td>{{round($porcentaje2)}}%</td>
+            <td><center>{{round($porcentaje2)}}%</center></td>
 
               <?php 
             $contador2 = $contador2+ 1;
