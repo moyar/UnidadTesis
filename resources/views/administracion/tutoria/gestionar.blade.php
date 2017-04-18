@@ -28,7 +28,8 @@
 				<tr>
 					<td>{!!$asi->rut!!}</td>
 					<td>{!!$asi->nombre!!} {!!$asi->apellidos!!}</td>
-           			<td><a><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a></td>
+           			<td><a href="{{URL::action('EstudianteController@datos',$asi->id_user)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a></td>
+           			 
 				</tr>
 
 				

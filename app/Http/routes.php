@@ -51,3 +51,7 @@ Route::put('administracion/taller/asistencia/edit/{id}','TallerController@update
 Route::get('administracion/taller/ver/{id}','TallerController@ver');
 //estudiante
 Route::get('administracion/estudiante/datos/{id}','EstudianteController@datos');
+Route::post('administracion/estudiante/datos','ComentarioController@store');
+Route::get('administracion/estudiante/edit/{id}','ComentarioController@edit');
+Route::put('administracion/estudiante/editC/{id}','ComentarioController@update');
+Route::delete('administracion/estudiante/datos/{id}','ComentarioController@eliminar');

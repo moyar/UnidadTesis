@@ -28,5 +28,9 @@ class Estudiante extends Model
         return $this->hasMany('App\Estudiante_fecha');
     }
 
+    public function comentarios()
+    {
+        return $this->hasMany('App\Comentario');
+    }
     
 }

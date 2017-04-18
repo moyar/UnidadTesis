@@ -270,6 +270,7 @@ class ComposerStaticInit7a3c788a24e32d61a24784fed3ec6b8e
 
     public static $classMap = array (
         'Categoria' => __DIR__ . '/../..' . '/database/migrations/2017_04_02_034952_categoria.php',
+        'Comentario' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_010543_comentario.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'EstudianteFecha' => __DIR__ . '/../..' . '/database/migrations/2017_03_16_192900_estudiante_fecha.php',
         'EstudianteFechaT' => __DIR__ . '/../..' . '/database/migrations/2017_04_01_194617_EstudianteFechaT.php',

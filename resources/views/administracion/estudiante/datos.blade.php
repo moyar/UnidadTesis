@@ -8,6 +8,7 @@
     <li class="active"><a data-toggle="tab" href="#home">Datos Personales</a></li>
     <li><a data-toggle="tab" href="#menu1">Tutorias</a></li>
     <li><a data-toggle="tab" href="#menu2">Talleres</a></li>
+    <li><a data-toggle="tab" href="#menu3">Comentarios</a></li>
 
   </ul>
 
@@ -216,6 +217,59 @@ th{
 
   </div>
 </div>
+
 </div>
+<div id="menu3" class="tab-pane fade "> 
+
+<style type="text/css">
+  .comment-content {
+  clear: both;
+  margin-left: 65px;
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+</style>
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+      <h3>Nuevo Comentario</h3>
+      @if (count($errors)>0)
+      <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+        </ul>
+      </div>
+      @endif
+
+      {!!Form::open(array('url'=>'administracion/estudiante/datos','method'=>'POST','autocomplete'=>'off'))!!}
+            {{Form::token()}}
+          
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <input type="hidden" name="estudianteId" value="{{$estudiante->id_user}}">
+            <div class="row">
+             <form>
+          <div class="col-md-6">
+            {{ Form::label('nombre', "Nombre:") }}
+            {{ Form::text('nombre', null, ['class' => 'form-control']) }}
+          </div>
+
+          <div class="col-md-12">
+           {{ Form::label('comentario', "Comentario:") }}
+            {!! Form::textarea('comentario', null, ['class' => 'form-control', 'rows' => '5']) !!}
+
+            {{ Form::submit('Agregar Comentario', ['class' => 'btn btn-success btn-block', 'style' => 'margin-top:15px;']) }}
+          </div>
+        </div>
+   </form>
+{!!Form::close()!!}
+
+@include('administracion.estudiante.indiceComentario')
+</div>
+
+
+
 
 @endsection

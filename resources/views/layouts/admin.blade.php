@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
@@ -111,6 +112,15 @@
 
 
                  </li>
+                  <li><a href="{{action('TallerController@index')}}"><i class="fa fa-circle-o"></i> Talleres</a>
+
+                  <ul>
+                       <li><a href="{{action('TallerController@index')}}">Indice de Talleres</a></li>
+                       <li><a href="{{action('TallerController@create')}}">Nuevo Taller</a></li>
+                    </ul>
+
+
+                 </li>
                 
               
             </li>      
@@ -167,13 +177,7 @@
       {!! Html::style('css/select2.min.css') !!}
       <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'link code',
-      menubar: false
-    });
-  </script>
+  
           <script type="text/javascript">
             $('.select2-multi').select2();
            
