@@ -36,7 +36,9 @@
 				
 				@endforeach
 			</table>
-		<button class="btn btn-info col-md-6 " type="submit">Guardar</button>
+
+		<button class="btn btn-info" type="submit">Guardar</button>
+		<a href=""><button class="btn btn-danger " type="cancel">Cancelar</button></a>
 		</div>
 	</div>
 	

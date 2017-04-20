@@ -45,10 +45,10 @@ class TallerController extends Controller
     {
       
         $talleres = new Taller;
-
         $talleres->nombre_grupo = $request->nombre_grupo;
-        
         $talleres->categorias()->associate( $request->categoria_id);
+        $talleres->semestre = $request->semestre;
+        $talleres->año = $request->año;
         $talleres->save();
         $talleres->estudiantes()->sync($request->tags);
         return Redirect::to('administracion/taller');
@@ -113,6 +113,8 @@ class TallerController extends Controller
 
         $talleres->nombre_grupo = $request->nombre_grupo;
         $talleres->categoria_id = $request->categoria_id;
+        $talleres->semestre = $request->semestre;
+        $talleres->año = $request->año;
         $talleres->save();
 
 

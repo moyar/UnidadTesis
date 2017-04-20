@@ -12,10 +12,12 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
 					
-					<th>Grupo</th>
-					<th>Asignatura</th>
-					<th>Tutor</th>
-					<th>Opciones</th>
+					<th><center>Grupo</center></th>
+					<th><center>Asignatura</center></th>
+					<th><center>Tutor</center></th>
+					<th><center>Semestre</center></th>
+					<th><center>Año</center></th>
+					<th><center>Opciones</center></th>
 				</thead>
 			
 					
@@ -23,9 +25,12 @@
 						
 						<tr>
 							
-							<td>{{ $post->nombre_grupo }}</td>
-							<td>{{ $post->asignaturas->nombre}}</td>
-							<td>{{$post->tutores->nombre}} {{ $post->tutores->apellidos }}</td>
+							<td><center>{{ $post->nombre_grupo }}</center></td>
+							<td><center>{{$post->asignaturas->nombre}}</center></td>
+							<td><center>{{$post->tutores->nombre}} {{ $post->tutores->apellidos }}</center></td>
+							<td><center>{{ $post->semestre}}</center></td>
+							<td><center>{{ $post->año}}</center></td>
+							
 							<td>
 							<a href="{{URL::action('TutoriaController@mostrarGestionar',$post->id)}}"><button class="btn btn-info">Gestionar</button></a>
 							<a href="" data-target="#modal-delete-{{$post->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
@@ -39,7 +44,7 @@
 			</table>
 			</table>
 		</div>
-	 {{$tutorias->render()}}
+	
 	</div>
 </div>
 

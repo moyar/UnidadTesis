@@ -17,11 +17,11 @@
 			{!!Form::open(array('url'=>'administracion/tutoria','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="nombre_grupo">Grupo </label>
             	<input type="text" name="nombre_grupo" class="form-control" placeholder="nombre del grupo...">
             </div>
-           <div class="form-group">
+           <div class="form-group col-md-8">
            <label for = "asignatura">Asignatura</label>
            <select class="form-control" name="asignaturas_id">
 					@foreach($asignaturas as $asi)
@@ -30,7 +30,7 @@
 
 			</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group col-md-8">
 			<label for="tutor">Tutor</label>
 			<select class="form-control" name="tutores_id">
 					@foreach($tutores as $tu)
@@ -39,7 +39,19 @@
 
 			</select>
             </div>
-           <div class="form-group">
+            <div class="form-group col-md-8">
+            	<label for="semestre">Semestre </label>
+            	<select class="form-control" name="semestre">
+					<option value=''>Seleccione Semestre</option>
+					<option value='I'>I</option>
+					<option value='II'>II</option>
+			</select>
+            </div>
+            <div class="form-group col-md-8">
+            	<label for="año">Grupo </label>
+            	<input type="text" name="año" class="form-control" placeholder="Ingrese el año...">
+            </div>
+           <div class="form-group col-md-8">
  			{{ Form::label('estudiantes', 'Estudiantes:') }}
 				<select class="form-control select2-multi" name="tags[]" multiple="multiple">
 					@foreach($estudiantes as $tag)
@@ -48,7 +60,7 @@
 
 				</select>
 				</div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<button class="btn btn-primary" type="submit">Guardar</button>
             	{!! Html::link('administracion/tutoria', 'Cancelar',  array('class' => 'btn btn-danger')) !!}
             			

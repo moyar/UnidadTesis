@@ -9,8 +9,8 @@
 <div>
 	
 	<a href="{{URL::action('TutoriaController@edit',$tutorias->id)}}"><button class="btn btn-info">Editar</button></a>
-	<a href="{{URL::action('TutoriaController@crear',$tutorias->id)}}"><button class="btn btn-info">Crear Asistencia</button></a>
-	<a href="{{URL::action('TutoriaController@ver',$tutorias->id)}}"><button class="btn btn-info">Ver Asistencia</button></a>
+	<a href="{{URL::action('TutoriaController@crear',$tutorias->id)}}"><button class="btn btn-success">Crear Asistencia</button></a>
+	<a href="{{URL::action('TutoriaController@ver',$tutorias->id)}}"><button class="btn btn-warning">Ver Asistencia</button></a>
 	<h1> </h1>
 </div>
 

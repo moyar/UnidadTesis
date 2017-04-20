@@ -48,6 +48,8 @@ class TutoriaController extends Controller
         $tutoria->nombre_grupo = $request->nombre_grupo;
         $tutoria->asignaturas_id = $request->asignaturas_id;
         $tutoria->tutores_id = $request->tutores_id;
+        $tutoria->semestre = $request->semestre;
+        $tutoria->año = $request->año;
         $tutoria->save();
         $tutoria->estudiantes()->sync($request->tags);
         return Redirect::to('administracion/tutoria');
@@ -119,6 +121,8 @@ class TutoriaController extends Controller
         $tutorias->nombre_grupo = $request->nombre_grupo;
         $tutorias->asignaturas_id = $request->asignaturas_id;
         $tutorias->tutores_id = $request->tutores_id;
+        $tutorias->semestre = $request->semestre;
+        $tutorias->año = $request->año;
         $tutorias->save();
 
 
