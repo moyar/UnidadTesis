@@ -19,63 +19,63 @@
 
         <form class="form-horizontal">
               <div class="form-group">
-               <label  class="control-label label-success col-xs-2">Rut:</label>
+               <label  class="control-label label-default col-xs-2">Rut:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->rut}}</p>
               </div>
-               <label  class="control-label label-success col-xs-2">Nombre:</label>
+               <label  class="control-label label-default col-xs-2">Nombre:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->nombre}}</p>
               </div>
-               <label class="control-label label-success col-xs-2">Apellidos:</label>
+               <label  class="control-label label-default col-xs-2">Apellidos:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->apellidos}}</p>
               </div>
-               <label  class="control-label label-success col-xs-2">Telefono:</label>
+               <label  class="control-label label-default col-xs-2">Telefono:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->telefono}}</p>
               </div>
-               <label  class="control-label label-success col-xs-2">Correo:</label>
+               <label  class="control-label label-default col-xs-2">Correo:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->email}}</p>
               </div>
-               <label  class="control-label label-success col-xs-2">Carrera:</label>
+               <label  class="control-label label-default col-xs-2">Carrera:</label>
               <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->carrera}}</p>
+                  <p class="form-control-static">{{$estudiante->carreras->nombre}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Fecha de Nacimiento:</label>
+               <label  class="control-label label-default col-xs-2">Fecha de Nacimiento:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->fecha_nacimiento}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Genero:</label>
+                <label  class="control-label label-default col-xs-2">Genero:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->sexo}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Tipo de Ingreso:</label>
+              <label  class="control-label label-default col-xs-2">Tipo de Ingreso:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->tipo_ingreso}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Año Ingreso:</label>
+               <label  class="control-label label-default col-xs-2">Año Ingreso:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->año_ingreso}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Ciudad de Procedencia:</label>
+               <label  class="control-label label-default col-xs-2">Ciudad de Procedencia:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->ciudad_procedencia}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Quintil:</label>
+               <label  class="control-label label-default col-xs-2">Quintil:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->quintil}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Nombre Apoderado:</label>
+               <label  class="control-label label-default col-xs-2">Nombre Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->nombre_apoderado}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Apellidos Apoderado:</label>
+               <label  class="control-label label-default col-xs-2">Apellidos Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->apellidos_apoderado}}</p>
               </div>
-                <label  class="control-label label-success col-xs-2">Telefono Apoderado:</label>
+               <label  class="control-label label-default col-xs-2">Telefono Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->telefono_apoderado}}</p>
               </div>

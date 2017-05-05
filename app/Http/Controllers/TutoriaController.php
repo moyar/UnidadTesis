@@ -22,14 +22,24 @@ class TutoriaController extends Controller
 	 public function __construct(Request $request) {
       
     }
-    public function index()
+    public function index(Request $request)
     {
-        $tutores = Tutor::all();
-        $tutorias = Tutoria::orderBy('id', 'desc')->paginate(10);
-        
-        
+        // $tutores = Tutor::all();
+        // $tutorias = Tutoria::orderBy('id', 'desc')->paginate(10);
+        // return view('administracion.tutoria.index')->withTutorias($tutorias)->withTutores($tutores);
 
-        return view('administracion.tutoria.index')->withTutorias($tutorias)->withTutores($tutores);
+
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+           
+            $tutorias = Tutoria::orderBy('id', 'desc')
+            ->where('nombre_grupo','LIKE','%'.$query.'%')
+            ->orwhere('semestre','LIKE','%'.$query.'%')
+            ->orwhere('año','LIKE','%'.$query.'%')
+            ->paginate(10);
+            return view('administracion.tutoria.index',["tutorias"=>$tutorias,"searchText"=>$query]);
+        }
     }
      public function create()
     {

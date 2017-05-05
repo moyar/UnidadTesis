@@ -21,17 +21,23 @@ use Response;
 
 class TallerController extends Controller
 {
-     public function __construct(Request $request) {
+     public function __construct() {
       
     }
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categoria::all();
-        $talleres = Taller::all();
-        
-        
-
-        return view('administracion.taller.index',compact('talleres'));
+     
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+           
+            $talleres = Taller::orderBy('id', 'desc')
+            ->where('nombre_grupo','LIKE','%'.$query.'%')
+            ->orwhere('semestre','LIKE','%'.$query.'%')
+            ->orwhere('año','LIKE','%'.$query.'%')
+            ->paginate(10);
+            return view('administracion.taller.index',["talleres"=>$talleres,"searchText"=>$query]);
+        }
     }
      public function create()
     {

@@ -32,5 +32,10 @@ class Estudiante extends Model
     {
         return $this->hasMany('App\Comentario');
     }
+
+    public function carreras()
+    {
+        return $this->belongsTo('App\Carrera','carrera_id');
+    }
     
 }

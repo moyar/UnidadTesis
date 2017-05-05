@@ -1,6 +1,6 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal-delete-{{$use->id_user}}">
-	{{Form::Open(array('action'=>array('EstudianteController@destroy',$use->id_user),'method'=>'delete'))}}
+role="dialog" tabindex="-1" id="modal-delete-{{$use->id}}">
+	{{Form::Open(array('action'=>array('CarreraController@destroy',$use->id),'method'=>'delete'))}}
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -8,10 +8,10 @@ role="dialog" tabindex="-1" id="modal-delete-{{$use->id_user}}">
 				aria-label="Close">
                      <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Eliminar Estudiante</h4>
+                <h4 class="modal-title">Eliminar Carrera</h4>
 			</div>
 			<div class="modal-body">
-				<p>Confirme si desea Eliminar Estudiante</p>
+				<p>Confirme si desea Eliminar esta Carrera</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

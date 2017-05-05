@@ -90,7 +90,12 @@
           <ul class="sidebar-menu">
             <li class="header"></li>
             
-            
+                <li><a href="{{action('EstudianteController@index')}}" ><i class="fa fa-circle-o"></i> Carreras</a>
+                    <ul>
+                       <li><a href="{{action('CarreraController@index')}}">Indice de Carreras</a></li>
+                       <li><a href="{{action('CarreraController@create')}}">Nueva Carrera</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{action('EstudianteController@index')}}" ><i class="fa fa-circle-o"></i> Estudiantes</a>
                     <ul>
                        <li><a href="{{action('EstudianteController@index')}}">Indice de Estudiantes</a></li>

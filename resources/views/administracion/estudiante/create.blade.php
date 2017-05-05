@@ -56,20 +56,16 @@
                               </div>
                               <div class="form-group col-md-8">
                              <label for = "carrera">Carrera</label>
-                             <select class="form-control" name="carrera">
-                                    <option value=''>Seleccione una Carrera </option>        
-                                    <option value='Bachillerato en Ciencias de la Ingeniería'>Bachillerato en Ciencias de la Ingeniería</option>
-                                    <option value='Ingeniería Civil Acústica'>Ingeniería Civil Acústica</option>
-                                    <option value='Ingeniería Civil Electrónica'>Ingeniería Civil Electrónica</option>
-                                    <option value='Ingeniería Civil Industrial'>Ingeniería Civil Industrial</option>
-                                    <option value='Ingeniería Civil en Informática'>Ingeniería Civil en Informática</option>
-                                    <option value='Ingeniería Civil Mecánica'>Ingeniería Civil Mecánica</option>
-                                    <option value='Ingeniería en Construcción'>Ingeniería en Construcción</option>
-                                    <option value='Ingeniería Naval'>Ingeniería Naval </option>
-                                           
+                             
+                             <label for = "carrera_id">Carrera</label>
+                             <select class="form-control" name="carrera_id">
+                                    <option value=''>Seleccionar Carrera</option>
+                                    @foreach($carrera as $asi)
+                                    <option value='{{ $asi->id}}'>{{ $asi->nombre}}</option>
+                                    @endforeach
 
-                              </select>
-                              </div>
+                                </select>
+                            </div>
 
                          </div>
                            
@@ -111,7 +107,7 @@
 
                            </div>
                            </div>
-                           <a class="btn btn-default next" href="#">Continue</a>
+                           <a class="btn btn-default next" href="#">Continuar</a>
                         </div>
                         <div class="tab-pane" id="step3">
                            <div class="row">

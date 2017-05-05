@@ -12,22 +12,23 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th>Id</th>
-					<th>Rut</th>
-					<th>Nombres</th>
-					<th>Apellidos</th>
-					<th>Carrera</th>
-					<th>Email</th>
-					<th>Opciones</th>
+					<th><center>Id</center></th>
+					<th><center>Rut</center></th>
+					<th><center>Nombres</center></th>
+					<th><center>Apellidos</center></th>
+					<th><center>Email</center></th>
+					<th><center>Carrera</center></th>
+					<th><center>Opciones</center></th>
 				</thead>
-               @foreach ($users as $use)
+               @foreach ($usuarios as $use)
+               <tbody>
 				<tr>
-					<td>{{ $use->id_user}}</td>
-					<td>{{ $use->rut}}</td>
-					<td>{{ $use->nombre}}</td>
-					<td>{{ $use->apellidos}}</td>
-					<td>{{$use->carrera}}</td>
-					<td>{{ $use->email}}</td>
+					<td><center>{{$use->id_user}}</center></td>
+					<td><center>{{$use->rut}}</center></td>
+					<td><center>{{$use->nombre}}</center></td>
+					<td><center>{{$use->apellidos}}</center></td>
+					<td><center>{{$use->email}}</center></td>
+					<td><center>{{$use->carreras->nombre}}</center></td>
 					<td>
 
 						 
@@ -40,9 +41,9 @@
 				</tr>
 				@include('administracion.estudiante.modal')
 				@endforeach
+				</tbody>
 			</table>
 		</div>
-		{{$users->render()}}
 	</div>
 </div>
 

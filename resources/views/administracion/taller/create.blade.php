@@ -48,7 +48,7 @@
  			{{ Form::label('estudiantes', 'Estudiantes:') }}
 				<select class="form-control select2-multi" name="tags[]" multiple="multiple">
 					@foreach($estudiantes as $tag)
-						<option value='{{ $tag->id_user }}'>{{ $tag->nombre }} {{ $tag->apellido }}</option>
+						<option value='{{ $tag->id_user }}'>{{ $tag->nombre }} {{ $tag->apellidos }}</option>
 					@endforeach
 
 				</select>

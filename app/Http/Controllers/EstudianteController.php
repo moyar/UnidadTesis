@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Estudiante;
 use App\Tutoria;
 use App\Taller;
+use App\Carrera;
 use App\Estudiante_fecha;
 use App\Estudiante_fechat;
 use App\Fecha_tutoria;
@@ -13,7 +14,10 @@ use App\Fecha_taller;
 use App\Categoria;
 use App\Asignatura;
 use App\Tutor;
-use Illuminate\Support\Facades\Redirect;
+use Session;
+
+use Illuminate\Support\Collection;
+use Response;
 //use App\Http\Requests\EstudianteFormRequest;
 use DB;
 
@@ -27,34 +31,42 @@ class EstudianteController extends Controller
     }
     public function index(Request $request)
     {
+        $estudiantes = Estudiante::all();
+
         if ($request)
         {
             $query=trim($request->get('searchText'));
-            $usuarios=DB::table('estudiantes')
+            
+              $usuarios = Estudiante::orderBy('id_user', 'desc')
             ->where('nombre','LIKE','%'.$query.'%')          
             ->orwhere('rut','LIKE','%'.$query.'%')            
             ->orwhere('apellidos','LIKE','%'.$query.'%')           
             ->orwhere('telefono','LIKE','%'.$query.'%')            
             ->orwhere('email','LIKE','%'.$query.'%') 
-            ->orwhere('carrera','LIKE','%'.$query.'%')           
-            ->orderBy('id_user','desc')
             ->paginate(10);
-            return view('administracion.estudiante.index',["users"=>$usuarios,"searchText"=>$query]);
+
+
+            return view('administracion.estudiante.index',["usuarios"=>$usuarios,"searchText"=>$query]);
         }
     }
-    public function create()
-    {
-        return view("administracion.estudiante.create");
+    public function create(){
+
+        $carrera = Carrera::all();
+       // dd($carrera);
+        //return view("administracion.estudiante.create")->withCarrera('carrera',$carrera);
+        return view('administracion.estudiante.create', compact('carrera'));
     }
     public function store (Request $request)
     {
+        
+        $carrera = Carrera::find($request->carrera_id);
         $usuarios=new Estudiante;
         $usuarios->rut=$request->get('rut');
         $usuarios->nombre=$request->get('nombre');
         $usuarios->apellidos=$request->get('apellidos');
         $usuarios->telefono=$request->get('telefono');
         $usuarios->email=$request->get('email');
-        $usuarios->carrera=$request->get('carrera');
+        $usuarios->carreras()->associate($carrera);    
         $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
         $usuarios->sexo=$request->get('genero');
         $usuarios->tipo_ingreso=$request->get('ingreso');

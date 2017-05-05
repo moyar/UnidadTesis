@@ -6,13 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Categoria' => $baseDir . '/database/migrations/2017_04_02_034952_categoria.php',
-    'Comentario' => $baseDir . '/database/migrations/2017_04_17_010543_comentario.php',
+    'AddcarreraIdToEstudiante' => $baseDir . '/database/migrations/2017_04_27_161125_AddcarreraIdToEstudiante.php',
+    'CreateCarreraTable' => $baseDir . '/database/migrations/2017_04_27_113708_create_carrera_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
-    'EstudianteFecha' => $baseDir . '/database/migrations/2017_03_16_192900_estudiante_fecha.php',
-    'EstudianteFechaT' => $baseDir . '/database/migrations/2017_04_01_194617_EstudianteFechaT.php',
-    'FechaTaller' => $baseDir . '/database/migrations/2017_04_01_194536_FechaTaller.php',
-    'FechaTutoria' => $baseDir . '/database/migrations/2017_03_16_192716_fecha_tutoria.php',
+    'Estudiantes' => $baseDir . '/database/migrations/2017_04_28_124818_estudiantes.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -522,7 +519,6 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
-    'Taller' => $baseDir . '/database/migrations/2017_04_02_040413_taller.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );

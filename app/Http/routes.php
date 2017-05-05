@@ -23,7 +23,7 @@ Route::resource('administracion/asignatura','AsignaturasController');
 Route::resource('administracion/categoria','CategoriaController');
 Route::resource('administracion/tutoria','TutoriaController');
 Route::resource('administracion/taller','TallerController');
-Route::resource('administracion/asistencia','AsistenciaController');
+Route::resource('administracion/carrera','CarreraController');
 
 //tutoria
 Route::get('administracion/tutoria/asistencia/{id}','TutoriaController@crear');
