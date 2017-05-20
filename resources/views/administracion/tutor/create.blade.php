@@ -35,6 +35,26 @@
             	<label for="email">Email</label>
             	<input type="text" name="email" class="form-control" placeholder="Email...">
             </div>
+            <div class="form-group col-md-8">
+                             <label for = "carrera">Carrera</label>
+                             
+                             <label for = "carrera_id">Carrera</label>
+                             <select class="form-control" name="carrera_id">
+                                    <option value=''>Seleccionar Carrera</option>
+                                    @foreach($carrera as $asi)
+                                    <option value='{{ $asi->id}}'>{{ $asi->nombre}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                             <div class="form-group col-md-8">
+                                   <label for = "genero">Genero</label>
+                                   <select class="form-control" name="genero">
+                                                  <option value=''> Seleccione un Genero </option>
+                                                  <option value='Femenino'> Femenino</option>
+                                                  <option value='Masculino'> Masculino </option>   
+                                    </select>
+                              </div>
 
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Guardar</button>

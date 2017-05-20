@@ -269,8 +269,8 @@ class ComposerStaticInit7a3c788a24e32d61a24784fed3ec6b8e
     );
 
     public static $classMap = array (
+        'AddAsignaturaTutores' => __DIR__ . '/../..' . '/database/migrations/2017_05_20_141849_addAsignatura_tutores.php',
         'AddcarreraIdToEstudiante' => __DIR__ . '/../..' . '/database/migrations/2017_04_27_161125_AddcarreraIdToEstudiante.php',
-        'CreateCarreraTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_27_113708_create_carrera_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'Estudiantes' => __DIR__ . '/../..' . '/database/migrations/2017_04_28_124818_estudiantes.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

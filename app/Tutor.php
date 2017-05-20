@@ -15,9 +15,11 @@ class Tutor extends Model
      protected $primaryKey='id_tutor';
      public $timestamps=false;
 
-    public function tutorias()
-    {
+    public function tutorias(){
         return $this->hasMany('App\Tutoria');
+    }
+    public function carreras(){
+        return $this->belongsTo('App\Carrera','carrera_id');
     }
 }
 

@@ -101,7 +101,7 @@ class TallerController extends Controller
         foreach ($categorias as $categoria) {
             $cate[$categoria->id_categoria] = $categoria->nombre;
         }
-      
+         //dd($cate);
         $estudiantes = Estudiante::all();
         $estu = array();
         foreach ($estudiantes as $estudiante) {

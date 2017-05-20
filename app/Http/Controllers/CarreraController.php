@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Carrera;
 use App\Estudiante;
+use App\Tutor;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use DB;

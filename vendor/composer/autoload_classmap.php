@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddAsignaturaTutores' => $baseDir . '/database/migrations/2017_05_20_141849_addAsignatura_tutores.php',
     'AddcarreraIdToEstudiante' => $baseDir . '/database/migrations/2017_04_27_161125_AddcarreraIdToEstudiante.php',
-    'CreateCarreraTable' => $baseDir . '/database/migrations/2017_04_27_113708_create_carrera_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'Estudiantes' => $baseDir . '/database/migrations/2017_04_28_124818_estudiantes.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

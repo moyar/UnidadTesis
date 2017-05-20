@@ -87,18 +87,33 @@ class EstudianteController extends Controller
     }
     public function edit($id)
     {
-        return view("administracion.estudiante.edit",["usuarios"=>Estudiante::findOrFail($id)]);
+
+        $carreras = Carrera::all();
+        $usuarios = Estudiante::find($id);
+        
+        $carre = array();
+        foreach ($carreras as $carrer) {
+            $carre[$carrer->id] = $carrer->nombre;
+
+        }
+        
+        
+
+        //return view("administracion.estudiante.edit",["usuarios"=>Estudiante::findOrFail($id),"carre"=> Carrera::findOrFail()]);
+
+        return view('administracion.estudiante.edit')->withUsuarios($usuarios)->withCarre($carre);
     }
 
     public function update(Request $request,$id)
     {
+        
         $usuarios=Estudiante::findOrFail($id);
         $usuarios->rut=$request->get('rut');
         $usuarios->nombre=$request->get('nombre');
         $usuarios->apellidos=$request->get('apellidos');
         $usuarios->telefono=$request->get('telefono');
         $usuarios->email=$request->get('email');
-        $usuarios->carrera=$request->get('carrera');
+        $usuario->carrera_id = $request->carrera_id;
         $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
         $usuarios->sexo=$request->get('genero');
         $usuarios->tipo_ingreso=$request->get('ingreso');

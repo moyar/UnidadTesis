@@ -16,28 +16,44 @@
 
 			{!!Form::model($tutores,['method'=>'PATCH','route'=>['administracion.tutor.update',$tutores->id_tutor]])!!}
             {{Form::token()}}
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="rut">Rut</label>
             	<input type="text" name="rut" class="form-control" value="{{$tutores->rut}}" >
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="nombre">Nombre</label>
             	<input type="text" name="nombre" class="form-control" value="{{$tutores->nombre}}">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="apellidos">Apellidos</label>
             	<input type="text" name="apellidos" class="form-control" value="{{$tutores->apellidos}}" >
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="telefono">Telefono</label>
             	<input type="text" name="telefono" class="form-control" value="{{$tutores->telefono}}" >
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="email">Email</label>
             	<input type="text" name="email" class="form-control" value="{{$tutores->email}} ">
             </div>
 
-            <div class="form-group">
+             <div class="form-group col-md-8">
+          
+                                  {{ Form::label('carrera', "Carrera:", ['class' => 'form-spacing-top']) }}
+                                  {{ Form::select('carrera_id', $carre, null, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group col-md-8">
+                                   <label for = "genero">Genero</label>
+                                   <select class="form-control" name="genero">
+                                     <option value='{{$tutores->sexo}}'> {{$tutores->sexo}} </option>
+                                                  <option value=''> Seleccione un Genero </option>
+                                                  <option value='Femenino'> Femenino</option>
+                                                  <option value='Masculino'> Masculino </option>   
+                                    </select>
+                              </div>
+
+            <div class="form-group col-md-8">
             	<button class="btn btn-primary" type="submit">Guardar</button>
           {!! Html::link('administracion/tutor', 'Cancelar',  array('class' => 'btn btn-danger')) !!}
             </div>

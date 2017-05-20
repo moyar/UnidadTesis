@@ -16,7 +16,7 @@
 	
 
       <div class="container" id="myWizard">
-           {!!Form::model($usuarios,['method'=>'PATCH','route'=>['administracion.estudiante.update',$usuarios->id_user]])!!}
+           {!!Form::model($usuarios,['method'=>'PUT','route'=>['administracion.estudiante.update',$usuarios->id_user]])!!}
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
              {{Form::token()}}
                      <div class="navbar">
@@ -54,22 +54,10 @@
                                     <input type="text" name="email" class="form-control" value="{{$usuarios->telefono}}">
                               </div>
                               <div class="form-group col-md-8">
-                             <label for = "carrera">Carrera</label>
-                             <select class="form-control" name="carrera">
-                                      <option value='{{$usuarios->carrera}}'> {{$usuarios->carrera}} </option>
-                                    <option value=''>Seleccione una Carrera </option>        
-                                    <option value='Bachillerato en Ciencias de la Ingeniería'>Bachillerato en Ciencias de la Ingeniería</option>
-                                    <option value='Ingeniería Civil Acústica'>Ingeniería Civil Acústica</option>
-                                    <option value='Ingeniería Civil Electrónica'>Ingeniería Civil Electrónica</option>
-                                    <option value='Ingeniería Civil Industrial'>Ingeniería Civil Industrial</option>
-                                    <option value='Ingeniería Civil en Informática'>Ingeniería Civil en Informática</option>
-                                    <option value='Ingeniería Civil Mecánica'>Ingeniería Civil Mecánica</option>
-                                    <option value='Ingeniería en Construcción'>Ingeniería en Construcción</option>
-                                    <option value='Ingeniería Naval'>Ingeniería Naval </option>
-                                           
-
-                              </select>
-                              </div>
+          
+                                  {{ Form::label('carrera', "Carrera:", ['class' => 'form-spacing-top']) }}
+                                  {{ Form::select('carrera_id', $carre, null, ['class' => 'form-control']) }}
+                            </div>
 
                          </div>
                            
