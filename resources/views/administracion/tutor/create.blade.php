@@ -15,23 +15,23 @@
 
 			{!!Form::open(array('url'=>'administracion/tutor','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="rut">Rut</label>
             	<input type="text" name="rut" class="form-control" placeholder="Rut...">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="nombre">Nombre</label>
             	<input type="text" name="nombre" class="form-control" placeholder="Nombre...">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="apellidos">Apellidos</label>
             	<input type="text" name="apellidos" class="form-control" placeholder="apellidos...">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="telefono">Telefono</label>
             	<input type="text" name="telefono" class="form-control" placeholder="Telefono...">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<label for="email">Email</label>
             	<input type="text" name="email" class="form-control" placeholder="Email...">
             </div>
@@ -56,7 +56,7 @@
                                     </select>
                               </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-8">
             	<button class="btn btn-primary" type="submit">Guardar</button>
             	{!! Html::link('administracion/tutor', 'Cancelar',  array('class' => 'btn btn-danger')) !!}
             </div>

@@ -20,17 +20,24 @@ class TutorController extends Controller
     }
     public function index(Request $request)
     {
+        
+
+
+
+
         if ($request)
         {
             $query=trim($request->get('searchText'));
-            $tutores=DB::table('tutores')
-            ->where('nombre','LIKE','%'.$query.'%')
-            ->orwhere('rut','LIKE','%'.$query.'%') 
-            ->orwhere('apellidos','LIKE','%'.$query.'%')
-            ->orwhere('telefono','LIKE','%'.$query.'%')
-            ->orwhere('email','LIKE','%'.$query.'%')
-           ->orderBy('id_tutor','desc')
+            
+              $tutores = Tutor::orderBy('id_tutor', 'desc')
+            ->where('nombre','LIKE','%'.$query.'%')          
+            ->orwhere('rut','LIKE','%'.$query.'%')            
+            ->orwhere('apellidos','LIKE','%'.$query.'%')           
+            ->orwhere('telefono','LIKE','%'.$query.'%')            
+            ->orwhere('email','LIKE','%'.$query.'%') 
             ->paginate(10);
+
+
             return view('administracion.tutor.index',["tutores"=>$tutores,"searchText"=>$query]);
         }
     }
