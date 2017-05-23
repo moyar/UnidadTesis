@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Estudiante;
 use App\Tutoria;
@@ -31,13 +32,13 @@ class EstudianteController extends Controller
     }
     public function index(Request $request)
     {
-        $estudiantes = Estudiante::all();
+        //$estudiantes = Estudiante::all();
 
         if ($request)
         {
             $query=trim($request->get('searchText'));
             
-              $usuarios = Estudiante::orderBy('id_user', 'desc')
+             $usuarios = Estudiante::orderBy('id_user', 'desc')
             ->where('nombre','LIKE','%'.$query.'%')          
             ->orwhere('rut','LIKE','%'.$query.'%')            
             ->orwhere('apellidos','LIKE','%'.$query.'%')           
@@ -104,7 +105,7 @@ class EstudianteController extends Controller
         return view('administracion.estudiante.edit')->withUsuarios($usuarios)->withCarre($carre);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         
         $usuarios=Estudiante::findOrFail($id);
@@ -113,7 +114,8 @@ class EstudianteController extends Controller
         $usuarios->apellidos=$request->get('apellidos');
         $usuarios->telefono=$request->get('telefono');
         $usuarios->email=$request->get('email');
-        $usuario->carrera_id = $request->carrera_id;
+       
+        $usuarios->carreras()->associate($request->carrera_id);  
         $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
         $usuarios->sexo=$request->get('genero');
         $usuarios->tipo_ingreso=$request->get('ingreso');
