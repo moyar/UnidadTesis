@@ -55,3 +55,6 @@ Route::post('administracion/estudiante/datos','ComentarioController@store');
 Route::get('administracion/estudiante/edit/{id}','ComentarioController@edit');
 Route::put('administracion/estudiante/editC/{id}','ComentarioController@update');
 Route::delete('administracion/estudiante/datos/{id}','ComentarioController@eliminar');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
