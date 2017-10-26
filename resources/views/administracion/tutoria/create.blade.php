@@ -43,12 +43,12 @@
             	<label for="semestre">Semestre </label>
             	<select class="form-control" name="semestre">
 					<option value=''>Seleccione Semestre</option>
-					<option value='I'>I</option>
-					<option value='II'>II</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
 			</select>
             </div>
             <div class="form-group col-md-8">
-            	<label for="año">Grupo </label>
+            	<label for="año">Año </label>
             	<input type="text" name="año" class="form-control" placeholder="Ingrese el año...">
             </div>
            <div class="form-group col-md-8">

@@ -11,17 +11,23 @@ use App\Asignatura;
 use App\Asistencia;
 use App\Fecha_tutoria;
 use App\Estudiante_fecha;
-
+use App\User;
 use Session;
 use DB;
 use Illuminate\Support\Collection;
 use Response;
+use Auth;
+
+use Mail;
 class TutoriaController extends Controller
 {
 
-	 public function __construct(Request $request) {
-      
+	public function __construct()
+    {
+        $this->middleware('auth');
+       
     }
+
     public function index(Request $request)
     {
         // $tutores = Tutor::all();
@@ -77,7 +83,7 @@ class TutoriaController extends Controller
     public function mostrarGestionar($id){
 
          $tutorias = Tutoria::find($id);
-         $estudiantes =Tutoria::find($id)->estudiantes()->orderBy('nombre')->get();
+         $estudiantes =Tutoria::find($id)->estudiantes()->orderBy('id_user')->get();
          return view('administracion.tutoria.gestionar', compact('tutorias', 'estudiantes','id'));
 
     }
@@ -86,7 +92,7 @@ class TutoriaController extends Controller
     {
         // //$tutorias = Tutoria::with('estudiantes')->get();
          $tutorias = Tutoria::find($id);
-         $estudiantes =Tutoria::find($id)->estudiantes()->orderBy('nombre')->get();
+         $estudiantes =Tutoria::find($id)->estudiantes()->orderBy('id_user')->get();
          //$fecha_tutoria= DB::table('fecha_tutoria')->where('fecha_tutoria.tutoria_id','=',$id)->select('fecha_tutoria.tutoria_id');
          $fecha_tutoria=Fecha_tutoria::with('tutorias')->where('tutoria_id','=',$id)->orderBy('fecha','desc')->get();
 
@@ -176,7 +182,7 @@ class TutoriaController extends Controller
     public function saveAlumno(Request $r){
         $tutoria = Tutoria::find($r->tutoriaID);
         $fecha_tutoria =Fecha_tutoria::find($r->fechaID);
-        $estudiantes =Tutoria::find($r->tutoriaID)->estudiantes()->orderBy('nombre')->get();  
+        $estudiantes =Tutoria::find($r->tutoriaID)->estudiantes()->orderBy('id_user')->get();  
         
         $est = Estudiante_fecha::with('fecha_tutorias')->where('fecha_id','=',$r->fechaID)->select('fecha_id')->count();
         if($est>0){
@@ -228,7 +234,7 @@ class TutoriaController extends Controller
     {
         $fecha_tutoria=Fecha_tutoria::find($id_f);
         $tutorias=Tutoria::find($fecha_tutoria->tutoria_id);
-        $estudiantes =Tutoria::find($fecha_tutoria->tutoria_id)->estudiantes()->orderBy('nombre')->get();      
+        $estudiantes =Tutoria::find($fecha_tutoria->tutoria_id)->estudiantes()->orderBy('id_user')->get();      
        return view('administracion.tutoria.asistencia.asi', compact('tutorias', 'estudiantes','id_f','fecha_tutoria'));
     }
 
@@ -307,4 +313,35 @@ class TutoriaController extends Controller
        
     }
 
+    public function correo(Request $r){
+
+            $tutoria = Tutoria::find($r->tutoriaId);
+            $asignatura= $tutoria->asignaturas->nombre;
+            $estudiante = Estudiante::find($r->Id);
+            $director = User::where('carrera_id','=',$estudiante->carrera_id)->first();
+          
+            //dd($r->ausente);
+            $mensaje = "Estimado Director(a) $director->name $director->apellidos le comunico a ud,   que     el Alumno $estudiante->nombre 
+                        $estudiante->apellidos, rut $estudiante->rut posee $r->ausente ausencias en la 
+                        asignatura de $asignatura, por lo que ha sido enviada una alerta para su 
+                        conocimiento.";
+            
+            
+          $data = array(
+            'email' => 'plataformaUAAEP@gmail.com',
+            'to'    => $director->email,
+            'subject' => "Ausencia tutorias de $asignatura",
+            'bodyMessage' => $mensaje 
+            );
+
+        Mail::send('administracion.emailC', $data, function($message) use ($data){
+            $message->from($data['email']);
+            $message->to($data['to']);
+            $message->subject($data['subject']);
+        });
+         return Redirect::to(action('TutoriaController@ver',$r->tutoriaId));
+    }
+
+
+   
 }

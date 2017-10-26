@@ -22,8 +22,24 @@
             <input type="hidden" name="tutoriaId" value="{{$tutorias->id}}">
             <div class="form-group col-md-4">
             	<label for="fecha">Fecha </label>
-            	<input type="date" name="fecha" class="form-control">
-            </div>
+	            <div class="input-group date">
+	  				<input type="date" name="fecha" id='divMiCalendario' class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			   </div>
+		   </div>
+
+		     <script type='text/javascript'>
+		     	 
+				$(function(){
+				$('.input-group.date').datepicker({
+					format: "yyyy/mm/dd",
+				    calendarWeeks: true,
+				    todayHighlight: true,
+				    autoclose: true,
+				    language: "es"
+				});  
+				});
+
+			</script>
            <div class="form-group col-md-4">
            <label for = "periodo">Periodo</label>
            <select class="form-control" name="periodo">
@@ -41,7 +57,7 @@
 			<div class="form-group col-md-4">
 			<label class="col-md-12">Opciónes</label>
 			<button class="btn btn-info  " type="submit">Guardar</button>
-			<button href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" type="button" class="btn btn-danger ">Cancelar</button>
+			<a href="{{URL::action('TutoriaController@mostrarGestionar',$tutorias->id)}}"><button class="btn btn-danger">Cancelar</button></a>
 			</div>
 
 {!!Form::close()!!}	

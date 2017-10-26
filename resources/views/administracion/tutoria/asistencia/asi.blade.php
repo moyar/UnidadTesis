@@ -26,7 +26,7 @@
 				</thead>
                @foreach ($estudiantes as $asi)
 				<tr>
-					<td>{!!$asi->rut!!}</td>
+					<td>{!!$asi->id_user!!}</td>
 					<td>{!!$asi->nombre!!}</td>
 					<td>
 						<input type="checkbox" name="estado[]" value="{{$asi->id_user}}">

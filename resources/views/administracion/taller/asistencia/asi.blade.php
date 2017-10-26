@@ -31,7 +31,6 @@
 					<td>
 						<input type="checkbox" name="estado[]" value="{{$asi->id_user}}">
 					 </td>
-           		
 				</tr>
 				
 				@endforeach

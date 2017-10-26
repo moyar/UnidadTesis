@@ -12,18 +12,19 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th><center>Id</center></th>
+					
 					<th><center>Rut</center></th>
 					<th><center>Nombres</center></th>
 					<th><center>Apellidos</center></th>
 					<th><center>Email</center></th>
 					<th><center>Carrera</center></th>
 					<th><center>Opciones</center></th>
+					
 				</thead>
                @foreach ($usuarios as $use)
                <tbody>
 				<tr>
-					<td><center>{{$use->id_user}}</center></td>
+					
 					<td><center>{{$use->rut}}</center></td>
 					<td><center>{{$use->nombre}}</center></td>
 					<td><center>{{$use->apellidos}}</center></td>

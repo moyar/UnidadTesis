@@ -75,10 +75,27 @@
                         <div class="tab-pane" id="step2">
                            <div class="row">
                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                             
+
                               <div class="form-group col-md-8">
-                                    <label for="fecha">Fecha de Nacimiento </label>
-                                    <input type="date" name="fecha_nacimiento" class="form-control">
-                              </div>
+                                  <label for="fecha">Fecha de Nacimiento</label>
+                                  <div class="input-group date">
+                                      <input type="text" name="fecha_nacimiento" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                  </div>
+                             </div>
+
+                                 <script type='text/javascript'>
+                                $(function(){
+                                $('.input-group.date').datepicker({
+                                  format: "yyyy/mm/dd",
+                                    calendarWeeks: true,
+                                    todayHighlight: true,
+                                    autoclose: true,
+                                    language: "es"
+                                  
+                                });  
+                                });
+                              </script>
                               <div class="form-group col-md-8">
                                    <label for = "genero">Genero</label>
                                    <select class="form-control" name="genero">

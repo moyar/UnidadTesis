@@ -36,7 +36,7 @@
             	<input type="text" name="email" class="form-control" placeholder="Email...">
             </div>
             <div class="form-group col-md-8">
-                             <label for = "carrera">Carrera</label>
+                             
                              
                              <label for = "carrera_id">Carrera</label>
                              <select class="form-control" name="carrera_id">

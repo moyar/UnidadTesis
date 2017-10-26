@@ -1,14 +1,16 @@
 @extends ('layouts.admin')
 @section ('contenido')
 <div class="container">
-  <h3>Ficha Estudiante: {{$estudiante->nombre}} {{$estudiante->apellidos}}</h3>
-  <h4>{{$estudiante->carrera}}</h4>
+  <h4 style="color: green;"><b>Ficha Estudiante</b> </h4>
+  <h3>{{$estudiante->nombre}} {{$estudiante->apellidos}}</h3>
+
  
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Datos Personales</a></li>
     <li><a data-toggle="tab" href="#menu1">Tutorias</a></li>
     <li><a data-toggle="tab" href="#menu2">Talleres</a></li>
     <li><a data-toggle="tab" href="#menu3">Comentarios</a></li>
+    <li><a data-toggle="tab" href="#menu4">Atencion Individual</a></li>
 
   </ul>
 
@@ -23,92 +25,65 @@
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->rut}}</p>
               </div>
-              </div>
-              <div class="form-group">
-               <label  class="control-label label-default col-sm-2 col-form-label ">Nombre:</label>
+              <label  class="control-label label-default col-sm-2 col-form-label ">Nombre:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->nombre}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Apellidos:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->apellidos}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Telefono:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->telefono}}</p>
               </div>
-              </div>
-              <div class="form-group">
-               <label  class="control-label label-default col-sm-2 col-form-label ">Correo:</label>
+                 <label  class="control-label label-default col-sm-2 col-form-label ">Correo:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->email}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Carrera:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->carreras->nombre}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Fecha de Nacimiento:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->fecha_nacimiento}}</p>
               </div>
-              </div>
-              <div class="form-group">
-                <label  class="control-label label-default col-sm-2 col-form-label ">Genero:</label>
+               <label  class="control-label label-default col-sm-2 col-form-label ">Genero:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->sexo}}</p>
               </div>
-              </div>
-              <div class="form-group">
-              <label  class="control-label label-default col-sm-2 col-form-label ">Tipo de Ingreso:</label>
+               <label  class="control-label label-default col-sm-2 col-form-label ">Tipo de Ingreso:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->tipo_ingreso}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Año Ingreso:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->año_ingreso}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Ciudad de Procedencia:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->ciudad_procedencia}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Quintil:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->quintil}}</p>
               </div>
-              </div>
-              <div class="form-group">
                <label  class="control-label label-default col-sm-2 col-form-label ">Nombre Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->nombre_apoderado}}</p>
               </div>
-              </div>
-              <div class="form-group">
-               <label  class="control-label label-default col-sm-2 col-form-label ">Apellidos Apoderado:</label>
+                <label  class="control-label label-default col-sm-2 col-form-label ">Apellidos Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->apellidos_apoderado}}</p>
               </div>
-              </div>
-              <div class="form-group">
-               <label  class="control-label label-default col-sm-2 col-form-label ">Telefono Apoderado:</label>
+                <label  class="control-label label-default col-sm-2 col-form-label ">Telefono Apoderado:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$estudiante->telefono_apoderado}}</p>
               </div>
               </div>
-                      </form>
+            
+         </form>
         
     
 </div>
@@ -302,6 +277,76 @@ th{
 {!!Form::close()!!}
 
 @include('administracion.estudiante.indiceComentario')
+</div>
+</div>
+
+
+<div id="menu4" class="tab-pane fade "> 
+<style type="text/css">
+  .comment-content {
+  clear: both;
+  margin-left: 65px;
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+</style>
+<div class="row">
+    <div class="col-lg-10 col-md-8 col-sm-8 col-xs-12">
+      <h3>Nueva Atencion</h3>
+      @if (count($errors)>0)
+      <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+        </ul>
+      </div>
+      @endif
+
+      {!!Form::open(array('url'=>'administracion/estudiante/datos','method'=>'POST','autocomplete'=>'off'))!!}
+            {{Form::token()}}
+          
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <input type="hidden" name="estudianteId" value="{{$estudiante->id_user}}">
+            <div class="row">
+             <form>
+
+            
+            
+            <input type="hidden" name="autor" class="form-control" value="{{Auth::user()->rut}}">
+            
+           <div class="col-md-5">
+            {{ Form::label('citadas', "Nº de sesiones Citadas:") }}
+            {{ Form::text('citadas', null, ['class' => 'form-control']) }}
+          </div>
+          <div class="col-md-5">
+            {{ Form::label('asistidas', "Nº de sesiones Asistidas:") }}
+            {{ Form::text('asistidas', null, ['class' => 'form-control']) }}
+          </div>
+
+          <div class="col-md-5">
+            {{ Form::label('diagnostico', "Diagnostico:") }}
+            {{ Form::text('diagnostico', null, ['class' => 'form-control']) }}
+          </div>
+          <div class="col-md-5">
+            {{ Form::label('derivaciones', "Derivaciones:") }}
+            {{ Form::text('derivaciones', null, ['class' => 'form-control']) }}
+          </div>
+
+          <div class="col-md-12">
+           {{ Form::label('observacion', "Observaciones:") }}
+            {!! Form::textarea('observacion', null, ['class' => 'form-control', 'rows' => '5']) !!}
+
+            {{ Form::submit('Agregar Atención', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top:15px;']) }}
+          </div>
+        </div>
+   </form>
+{!!Form::close()!!}
+
+@include('administracion.estudiante.atencion')
+</div>
 </div>
 
 

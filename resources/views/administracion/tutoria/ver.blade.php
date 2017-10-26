@@ -83,9 +83,9 @@ th{
 								<?php 
 									$conta= $conta+1;
 									
-									if($conta==0){
+									if($conta == 0){
 										
-										$porcentaje=0;
+										$porcentaje = 0;
 									}
 									else{
 										$porcentaje=($conta*100)/$total ;
@@ -103,10 +103,10 @@ th{
 						
 						<td><center>{{$conta}}</center></td>
 						<td><center>{{$ausente=$total-$conta}}</center></td>
-						<td><center>{{round($porcentaje)}}%</center></td>
+						<td><center>{{round($porcentaje =($conta*100)/$total)}}%</center></td>
 						<?php $contador+=1;?>
 						<?php 
-									$conta= 0;
+									$conta = 0;
 						 ?>
 					</tr>
 
@@ -133,6 +133,7 @@ th{
 						<th class="col-md-2">Correo</th>
 						<th class="col-md-2">Presente</th>
 						<th class="col-md-2">Ausente</th>
+						<th class="col-md-2">Alerta</th>
 						
 					</thead>
 					
@@ -156,6 +157,17 @@ th{
 						<td><center>{{$es->email}}</center></td>
 						<td><center>{{$con}}</center></td>
 					    <td><center>{{$aus}}</center></td>
+
+					{!!Form::open(array('action'=>['TutoriaController@correo',$tutorias->id],'method'=>'POST','autocomplete'=>'off'))!!}
+                      				
+				            {{Form::token()}}
+				          <input type="hidden" name="_token" value="{{csrf_token()}}">
+				           <input type="hidden" name="tutoriaId" value="{{$tutorias->id}}">
+				           <input type="hidden" name="Id" value="{{$es->id_user}}">
+				           <input type="hidden" name="ausente" value="{{$aus}}">
+					    <td><center><a href=""><button class="btn btn-info  " type="submit">Notificar Director</button></a></center></td>
+					    {!!Form::close()!!}	
+
 					    @endif
 					
 				

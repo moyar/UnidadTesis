@@ -21,9 +21,12 @@ use Response;
 
 class TallerController extends Controller
 {
-     public function __construct() {
-      
+     public function __construct()
+    {
+        $this->middleware('auth');
+        
     }
+
     public function index(Request $request)
     {
      
@@ -72,7 +75,7 @@ class TallerController extends Controller
     public function mostrarGestionar($id){
 
          $talleres = Taller::find($id);
-         $estudiantes =Taller::find($id)->estudiantes()->orderBy('nombre')->get();
+         $estudiantes =Taller::find($id)->estudiantes()->orderBy('id_user')->get();
          return view('administracion.taller.gestionar', compact('talleres', 'estudiantes','id'));
 
     }
@@ -81,7 +84,7 @@ class TallerController extends Controller
     {
    
          $talleres = Taller::find($id);
-         $estudiantes =Taller::find($id)->estudiantes()->orderBy('nombre')->get();
+         $estudiantes =Taller::find($id)->estudiantes()->orderBy('id_user')->get();
         
          $fecha_taller=Fecha_taller::with('talleres')->where('taller_id','=',$id)->orderBy('fecha','desc')->get();
 
@@ -165,7 +168,7 @@ class TallerController extends Controller
     public function saveAlumno(Request $r){
         $talleres = Taller::find($r->tallerID);
         $fecha_taller =Fecha_taller::find($r->fechaID);
-        $estudiantes =Taller::find($r->tallerID)->estudiantes()->orderBy('nombre')->get();  
+        $estudiantes =Taller::find($r->tallerID)->estudiantes()->orderBy('id_user')->get();  
         
         $est = Estudiante_fechat::with('fecha_talleres')->where('fecha_id','=',$r->fechaID)->select('fecha_id')->count();
         if($est>0){
@@ -217,7 +220,7 @@ class TallerController extends Controller
     {
         $fecha_taller=Fecha_taller::find($id_t);
         $talleres=Taller::find($fecha_taller->taller_id);
-        $estudiantes =Taller::find($fecha_taller->taller_id)->estudiantes()->orderBy('nombre')->get();      
+        $estudiantes =Taller::find($fecha_taller->taller_id)->estudiantes()->orderBy('id_user')->get();      
        return view('administracion.taller.asistencia.asi', compact('talleres', 'estudiantes','id_t','fecha_taller'));
     }
 

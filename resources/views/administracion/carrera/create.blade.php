@@ -49,6 +49,7 @@
                                     <option value=''>Seleccione un Campus </option>
                                     <option value='Campus Miraflores'>Campus Miraflores</option>
                                     <option value='Campus Teja'>Campus Teja</option>
+                                    <option value='Campus Puerto Montt'>Campus Puerto Montt</option>
                               </select>
             </div>
 

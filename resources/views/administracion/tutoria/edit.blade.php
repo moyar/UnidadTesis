@@ -37,8 +37,8 @@
                                    <select class="form-control" name="semestre">
                                      <option value='{{$tutorias->semestre}}'> {{$tutorias->semestre}} </option>
                                                   <option value=''> Seleccione semestre </option>
-                                                  <option value='I'> I</option>
-                                                  <option value='II'> II </option>   
+                                                  <option value='1'> 1</option>
+                                                  <option value='2'> 2 </option>   
                                     </select>
               </div>
 			

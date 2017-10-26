@@ -3,7 +3,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Taller</h3>
+			<h3>Nuevo Grupo Taller</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -35,12 +35,12 @@
             	<label for="semestre">Semestre </label>
             	<select class="form-control" name="semestre">
 					<option value=''>Seleccione Semestre</option>
-					<option value='I'>I</option>
-					<option value='II'>II</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
 			</select>
             </div>
             <div class="form-group col-md-8">
-            	<label for="año">Grupo </label>
+            	<label for="año">Año </label>
             	<input type="text" name="año" class="form-control" placeholder="Ingrese el año...">
             </div>
 			

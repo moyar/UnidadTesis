@@ -1,23 +1,21 @@
 <?php
 
 namespace App;
+use Auth;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $table='users';
-    protected $primaryKey='id_user';
-    protected $fillable = [
-        'rut','nombre', 'apellidos','telefono','rol','email', 'password','estado','test','fecha_nacimiento','sexo','tipo_ingreso','año_ingreso','ciudad_procedencia','quintil',
-        'nombre_apoderado','apellidos_apoderado','telefono_apoderado'
-    ];
+   
+ 
+    protected $primaryKey='id';
+    public $timestamps=false;
 
+
+   protected $fillable = [
+        'name', 'email', 'password',
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -27,8 +25,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $guarded =[
+    protected $table = 'users';
 
-    ];
+     public function carreras(){
+        return $this->belongsTo('App\Carrera','carrera_id');
+    }
+
+    public function roles(){
+        return $this->belongsTo('App\Rol','rol_id');
+    }
+
+
    
 }

@@ -10,8 +10,9 @@
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <input type="hidden" name="estudianteId" value="{{$estudiante->id_user}}">
-		<div class="table-responsive">
-		<table class="table">
+	<div class="table-responsive">
+       <div class="table-responsive">
+        <table class="table table-striped table-bordered table-condensed table-hover">
 		
 					<thead>
 						<tr>
@@ -39,6 +40,7 @@
 						@endforeach
 					</tbody>
 				</table>
+			</div>
 		 </div>
 		</div>
 	</div>

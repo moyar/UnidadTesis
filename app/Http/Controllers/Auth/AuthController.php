@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -28,7 +29,10 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+     
+    // protected $redirectTo = '/administracion/estudiante/';
+
+    
 
     /**
      * Create a new authentication controller instance.
@@ -68,5 +72,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm(){
+        return redirect('login');
+    }
+
+    public function redirectPath(){
+
+        if(auth()->user()->rol_id == 1){
+            return '/administracion/estudiante';
+        } 
+        if(auth()->user()->rol_id == 2){
+            return '/director/estudiante';
+        }
+
     }
 }

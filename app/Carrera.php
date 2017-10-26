@@ -17,4 +17,9 @@ class Carrera extends Model
     {
     	return $this->hasMany('App\Tutor');
     }
+
+     public function users()
+    {
+        return $this->hasMany('App\User');
+    }
 }

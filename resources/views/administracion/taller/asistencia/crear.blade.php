@@ -19,10 +19,27 @@
           
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="tallerId" value="{{$talleres->id}}">
+           
             <div class="form-group col-md-4">
             	<label for="fecha">Fecha </label>
-            	<input type="date" name="fecha" class="form-control">
-            </div>
+	            <div class="input-group date">
+	  				<input type="text" name="fecha" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+			   </div>
+		   </div>
+
+		     <script type='text/javascript'>
+				$(function(){
+				$('.input-group.date').datepicker({
+					format: "yyyy/mm/dd",
+				    calendarWeeks: true,
+				    todayHighlight: true,
+				    autoclose: true,
+				    language: "es"
+				  
+				});  
+				});
+
+			</script>
            <div class="form-group col-md-4">
            <label for = "periodo">Periodo</label>
            <select class="form-control" name="periodo">

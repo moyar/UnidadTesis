@@ -3,8 +3,8 @@
 
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Asistencia del curso</h3>
-		<h4>{{$talleres->categorias->nombre}}</h4>
+		<h4 style="color: green;"><b>Asistencia del Taller</b></h4>
+		<h3>{{$talleres->categorias->nombre}}</h3>
 		
 		<h4>Numero de Sesiones: {{$fecha_taller->count()}}</h4>
 	</div>
@@ -107,8 +107,8 @@ th{
 						
 						<td><center>{{$conta}}</center></td>
 						<td><center>{{$ausente}}</center></td>
-						<td><center>{{round($porcentaje)}}%</center></td>
-						<?php $contador+=1;?>
+						<td><center>{{round($porcentaje=(($conta * 100)/$total))}}%</center></td>
+						<?php $contador= $contador + 1;?>
 						<?php 
 									$conta= 0;
 						 ?>

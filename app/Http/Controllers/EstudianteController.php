@@ -16,6 +16,7 @@ use App\Categoria;
 use App\Asignatura;
 use App\Tutor;
 use Session;
+use Mail;
 
 use Illuminate\Support\Collection;
 use Response;
@@ -28,8 +29,10 @@ class EstudianteController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
+        
     }
+
     public function index(Request $request)
     {
         //$estudiantes = Estudiante::all();
@@ -97,10 +100,6 @@ class EstudianteController extends Controller
             $carre[$carrer->id] = $carrer->nombre;
 
         }
-        
-        
-
-        //return view("administracion.estudiante.edit",["usuarios"=>Estudiante::findOrFail($id),"carre"=> Carrera::findOrFail()]);
 
         return view('administracion.estudiante.edit')->withUsuarios($usuarios)->withCarre($carre);
     }
@@ -113,8 +112,7 @@ class EstudianteController extends Controller
         $usuarios->nombre=$request->get('nombre');
         $usuarios->apellidos=$request->get('apellidos');
         $usuarios->telefono=$request->get('telefono');
-        $usuarios->email=$request->get('email');
-       
+        $usuarios->email=$request->get('email');  
         $usuarios->carreras()->associate($request->carrera_id);  
         $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
         $usuarios->sexo=$request->get('genero');
@@ -155,16 +153,28 @@ class EstudianteController extends Controller
            $estFinal[$indice]=$valor;
            $indice = $indice + 1;
            $valor2=0;
+           $valor_aus = 0;
            foreach ($fecha_tutoria as $b) {
               
               $fecha = Estudiante_fecha::where('fecha_id','=',$b->id_f)->where('estudiante_id','=',$id_user)->get();
+
               foreach ($fecha as $c) {
+
                  if($c->estado == 1){
                     $valor2 = $valor2 + 1;
+                    
                  } 
+                 if($c->estado ==0){
+                  $valor_aus = $valor_aus + 1;
+                 }
+
+
+                 
               }
+              //
 
            }
+           
            $asis[$indice2] = $valor2;
            $indice2 = $indice2 + 1;     
        }
@@ -203,4 +213,7 @@ class EstudianteController extends Controller
      
 
     }
+
+    
+    
 }
