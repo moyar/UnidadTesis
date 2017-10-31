@@ -92,6 +92,48 @@ Route::group(['middleware' => 'guardian2'], function () {
 
 });
 
+Route::group(['middleware' => 'guardian3'], function () {
+	Route::resource('profesor/tutoria','ProfesorController');
+	Route::get('profesor/tutoria/gestionar/{id}','ProfesorController@mostrarGestionar');
+	Route::get('profesor/tutoria/ver/{id}','ProfesorController@ver');
+	Route::get('profesor/tutoria/vertopico/topico/{id}','TopicoController@ver');
+	Route::post('profesor/tutoria/vertopico/topico','TopicoController@store');
+	Route::get('profesor/tutoria/vertopico/editar/{id}','TopicoController@edit');
+	Route::put('profesor/tutoria/vertopico/editT/{id}','TopicoController@update');
+	Route::delete('profesor/tutoria/vertopico/topico/{id}','TopicoController@eliminar');
+
+	Route::get('profesor/tutoria/comentario/respuesta/{id}','RespuestaController@ver');
+	Route::post('profesor/tutoria/comentario/respuesta','RespuestaController@store');
+	Route::get('profesor/tutoria/comentario/editar/{id}','RespuestaController@edit');
+	Route::put('profesor/tutoria/comentario/editR/{id}','RespuestaController@update');
+	Route::delete('profesor/tutoria/comentario/respuesta/{id}','RespuestaController@eliminar');
+
+	Route::get('profesor/perfil/datos', 'ProfesorController@perfil');
+	Route::post('profesor/perfil/datos/{id}', 'ProfesorController@perfilu');
+
+
+
+});
+
+Route::group(['middleware' => 'guardian4'], function () {
+	Route::resource('tutor/tutoria','TutorRolController');
+	Route::get('tutor/tutoria/gestionar/{id}','TutorRolController@mostrarGestionar');
+	Route::get('tutor/tutoria/ver/{id}','TutorRolController@ver');
+	Route::get('tutor/tutoria/vertopico/topico/{id}','TopicoController@verd');
+	Route::post('tutor/tutoria/vertopico/topico','TopicoController@stored');
+	Route::get('tutor/tutoria/vertopico/editar/{id}','TopicoController@editd');
+	Route::put('tutor/tutoria/vertopico/editT/{id}','TopicoController@updated');
+	Route::delete('tutor/tutoria/vertopico/topico/{id}','TopicoController@eliminard');
+
+	Route::get('tutor/tutoria/comentario/respuesta/{id}','RespuestaController@verd');
+	Route::post('tutor/tutoria/comentario/respuesta','RespuestaController@stored');
+	Route::get('tutor/tutoria/comentario/editar/{id}','RespuestaController@editd');
+	Route::put('tutor/tutoria/comentario/editR/{id}','RespuestaController@updated');
+	Route::delete('tutor/tutoria/comentario/respuesta/{id}','RespuestaController@eliminard');
+
+	Route::get('tutor/perfil/datos', 'TutorRolController@perfil');
+	Route::post('tutor/perfil/datos/{id}', 'TutorRolController@perfilu');
+});
 
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');

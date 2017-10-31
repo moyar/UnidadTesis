@@ -12,6 +12,7 @@ use App\Asistencia;
 use App\Fecha_tutoria;
 use App\Estudiante_fecha;
 use App\User;
+use App\Profesor;
 use Session;
 use DB;
 use Illuminate\Support\Collection;
@@ -51,8 +52,11 @@ class TutoriaController extends Controller
     {
         $asignaturas = Asignatura::all();
         $estudiantes = Estudiante::all();
-        $tutores = Tutor::all();
-        return view('administracion.tutoria.create')->with('tutores',$tutores)->with('asignaturas',$asignaturas)->with('estudiantes',$estudiantes);
+        $tutores = User::where('rol_id','=', 4)->get();
+        $profesores = User::where('rol_id','=', 3)->get();
+
+      
+        return view('administracion.tutoria.create')->with('tutores',$tutores)->with('asignaturas',$asignaturas)->with('estudiantes',$estudiantes)->with('profesores',$profesores);
 
     }
 
@@ -66,6 +70,7 @@ class TutoriaController extends Controller
         $tutoria->tutores_id = $request->tutores_id;
         $tutoria->semestre = $request->semestre;
         $tutoria->año = $request->año;
+        $tutoria->profesor_id = $request->profesor_id;
         $tutoria->save();
         $tutoria->estudiantes()->sync($request->tags);
         return Redirect::to('administracion/tutoria');
@@ -107,17 +112,25 @@ class TutoriaController extends Controller
        
         $tutorias = Tutoria::find($id);
         $asignaturas = Asignatura::all();
-        $tutores = Tutor::all();
+        $tutores = User::where('rol_id','=', 4)->get();
+        $profesores = User::where('rol_id','=', 3)->get();
         $asig = array();
         foreach ($asignaturas as $asignatura) {
             $asig[$asignatura->id_asignatura] = $asignatura->nombre;
         }
         $tut = array();
         foreach ($tutores as $tutor) {
-            $tut[$tutor->id_tutor] = $tutor->nombre;
+            $nombre_completo = "$tutor->name $tutor->apellidos";
+            $tut[$tutor->id] = $nombre_completo;
         }
 
+         $prof = array();
+        foreach ($profesores as $profe) {
+            $nombre_completo = "$profe->name $profe->apellidos";
+            $prof[$profe->id] = $nombre_completo;
+        }
 
+    
 
         $estudiantes = Estudiante::all();
         $estu = array();
@@ -126,7 +139,7 @@ class TutoriaController extends Controller
         }
 
 
-        return view('administracion.tutoria.edit')->withTutorias($tutorias)->withAsignaturas($asig)->withTutores($tut)->withEstudiantes($estu);
+        return view('administracion.tutoria.edit')->withTutorias($tutorias)->withAsignaturas($asig)->withTutores($tut)->withEstudiantes($estu)->withProf($prof);
     }
 
     public function update(Request $request, $id)
@@ -139,6 +152,7 @@ class TutoriaController extends Controller
         $tutorias->tutores_id = $request->tutores_id;
         $tutorias->semestre = $request->semestre;
         $tutorias->año = $request->año;
+         $tutorias->profesor_id = $request->profesor_id;
         $tutorias->save();
 
 

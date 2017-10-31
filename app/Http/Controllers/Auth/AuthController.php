@@ -86,6 +86,12 @@ class AuthController extends Controller
         if(auth()->user()->rol_id == 2){
             return '/director/estudiante';
         }
+         if(auth()->user()->rol_id == 3){
+            return '/profesor/tutoria';
+        }
+         if(auth()->user()->rol_id == 4){
+            return '/tutor/tutoria';
+        }
 
     }
 }

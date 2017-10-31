@@ -29,7 +29,7 @@
 							
 							<td><center>{{ $post->nombre_grupo }}</center></td>
 							<td><center>{{$post->asignaturas->nombre}}</center></td>
-							<td><center>{{$post->tutores->nombre}} {{ $post->tutores->apellidos }}</center></td>
+							<td><center>{{$post->users->name}} {{$post->users->apellidos}}</center></td>
 							<td><center>{{ $post->semestre}}</center></td>
 							<td><center>{{ $post->año}}</center></td>
 							

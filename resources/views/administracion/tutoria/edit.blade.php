@@ -47,6 +47,12 @@
             	<input type="text" name="año" class="form-control" value="{{$tutorias->año}}" >
             </div>
 
+            <div class="form-group col-md-8">
+          
+           {{ Form::label('profesor_id', "Profesores:", ['class' => 'form-spacing-top']) }}
+			{{ Form::select('profesor_id', $prof, null, ['class' => 'form-control']) }}
+			</div>
+
 			<div class="form-group col-md-8">
  			{{ Form::label('estudiantes', 'Estudiantes:', ['class' => 'form-spacing-top']) }}
 			{{ Form::select('tags[]', $estudiantes, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}

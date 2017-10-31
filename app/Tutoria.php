@@ -25,14 +25,24 @@ class Tutoria extends Model
     	return $this->belongsToMany('App\Estudiante','estudiante_tutoria');
     }
   //relacion tutores
-     public function tutores()
+     public function users()
     {
-        return $this->belongsTo('App\Tutor');
+        return $this->belongsTo('App\User','tutores_id');
+    }
+
+     public function profesores()
+    {
+        return $this->belongsTo('App\Profesor', 'profesor_id');
     }
 
     public function fecha_tutorias()
     {
         return $this->hasMany('App\fecha_tutoria');
+    }
+
+    public function topicos()
+    {
+        return $this->hasMany('App\Topico');
     }
 
     

@@ -74,6 +74,12 @@
                     @if(Auth::user()->rol_id == 2)
                       <p><center>Director(a) {{Auth::user()->carreras->nombre}}</center></p>
                       @endif
+                         @if(Auth::user()->rol_id == 3)
+                      <p><center>Profesor(a)</center></p>
+                      @endif
+                         @if(Auth::user()->rol_id == 4)
+                      <p><center>Tutor(a) {{Auth::user()->carreras->nombre}}</center></p>
+                      @endif
                     <div class="pull-right">
 
                       <a href="{{ url('/logout') }}" class="btn btn-success btn-flat">Cerrar Sesión</a>
@@ -202,6 +208,64 @@
                   <ul class="treeview-menu">
                     <li><a href="{{action('DirectorController@perfil')}}"><i class="fa fa-circle-o text-aqua"></i> Modificar Perfil de Usuario</a></li>
                     
+                  
+                  </ul>
+                </li>
+                 @endif
+
+                  @if(Auth::user()->rol_id == 3)
+                  <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-user"></i> <span>Gestión de Tutorias</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="{{action('ProfesorController@index')}}"><i class="fa fa-circle-o text-red"></i> Indice de Tutorias</a></li>
+                      
+                      
+                    </ul>
+                  </li>
+                   <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-user"></i> <span>Perfil de Usuario</span>
+                     <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                  </a>
+                  <ul class="treeview-menu">
+                   
+                     <li><a href="{{action('ProfesorController@perfil')}}"><i class="fa fa-circle-o text-aqua"></i> Modificar Perfil de Usuario</a></li>
+                  
+                  </ul>
+                </li>
+                 @endif
+
+                 @if(Auth::user()->rol_id == 4)
+                  <li class="treeview">
+                    <a href="#">
+                      <i class="fa fa-user"></i> <span>Gestión de Tutorias</span>
+                      <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li><a href="{{action('TutorRolController@index')}}"><i class="fa fa-circle-o text-red"></i> Indice de Tutorias</a></li>
+                      
+                      
+                    </ul>
+                  </li>
+                   <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-user"></i> <span>Perfil de Usuario</span>
+                     <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                  </a>
+                  <ul class="treeview-menu">
+                  
+                     <li><a href="{{action('TutorRolController@perfil')}}"><i class="fa fa-circle-o text-aqua"></i> Modificar Perfil de Usuario</a></li>
                   
                   </ul>
                 </li>

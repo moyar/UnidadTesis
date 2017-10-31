@@ -3,7 +3,8 @@
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>{{$tutorias->asignaturas->nombre}}</h3>
-		<h4>{{$tutorias->nombre_grupo}}: {{$tutorias->tutores->nombre}} {{$tutorias->tutores->apellidos}}</h4>
+		<h4><b>Nombre Grupo Tutoría: </b>{{$tutorias->nombre_grupo}}</h4>
+		<h4><b>Nombre Tutor: </b>{{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h4>
 	</div>
 </div>
 <div>

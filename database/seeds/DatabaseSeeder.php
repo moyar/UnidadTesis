@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
       DB::table('roles')->insert([
             'nombre' => 'Director de Escuela'
         ]);
+      DB::table('roles')->insert([
+            'nombre' => 'Profesor'
+        ]);
+       DB::table('roles')->insert([
+            'nombre' => 'Tutor'
+        ]);
     }
 }

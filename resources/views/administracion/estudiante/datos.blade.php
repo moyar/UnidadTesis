@@ -146,7 +146,7 @@ th{
             
           <tr>       
             <td><center>{{$es->asignaturas->nombre}}</center></td>
-            <td><center>{{$es->tutores->nombre}} {{$es->tutores->apellidos}}</center></td>
+            <td><center>{{$es->users->name}} {{$es->users->apellidos}}</center></td>
             <td><center>{{$es->nombre_grupo}}</center></td>
             <td><center>{{$es->semestre}}</center></td> 
             <td><center>{{$es->año}}</center></td>   

@@ -51,5 +51,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'guardian' => \App\Http\Middleware\Guardian::class,
         'guardian2' => \App\Http\Middleware\Guardian2::class,
+        'guardian3' => \App\Http\Middleware\Guardian3::class,
+        'guardian4' => \App\Http\Middleware\Guardian4::class,
     ];
 }

@@ -34,7 +34,7 @@
 			<label for="tutor">Tutor</label>
 			<select class="form-control" name="tutores_id">
 					@foreach($tutores as $tu)
-						<option value='{{ $tu->id_tutor }}'>{{ $tu->nombre }} {{ $tu->apellidos }}</option>
+						<option value='{{ $tu->id }}'>{{ $tu->name }} {{ $tu->apellidos }}</option>
 					@endforeach
 
 			</select>
@@ -51,6 +51,15 @@
             	<label for="año">Año </label>
             	<input type="text" name="año" class="form-control" placeholder="Ingrese el año...">
             </div>
+            <div class="form-group col-md-8">
+           <label for = "profesor_id">Profesores</label>
+           <select class="form-control" name="profesor_id">
+					@foreach($profesores as $prof)
+						<option value='{{ $prof->id }}'>{{ $prof->name}} {{ $prof->apellidos}}</option>
+					@endforeach
+
+			</select>
+			</div>
            <div class="form-group col-md-8">
  			{{ Form::label('estudiantes', 'Estudiantes:') }}
 				<select class="form-control select2-multi" name="tags[]" multiple="multiple">
