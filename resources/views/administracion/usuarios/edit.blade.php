@@ -46,6 +46,15 @@
                                    value="{{ $user->rut }}">
                         </div>
                     </div>
+
+                     <div class="form-group">
+                        <label for="telefono" class="col-lg-2 control-label">Telefono</label>
+
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono"
+                                   value="{{ $user->telefono }}">
+                        </div>
+                    </div>
                     <div class="form-group">
                           <label for="carrera" class="col-lg-2 control-label">Carrera</label>
                            <div class="col-lg-10">

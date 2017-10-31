@@ -32,7 +32,7 @@ class Tutoria extends Model
 
      public function profesores()
     {
-        return $this->belongsTo('App\Profesor', 'profesor_id');
+        return $this->belongsTo('App\User', 'profesor_id');
     }
 
     public function fecha_tutorias()

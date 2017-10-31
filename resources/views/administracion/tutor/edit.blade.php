@@ -23,8 +23,8 @@
             	<input type="text" name="rut" class="form-control" value="{{$tutores->rut}}" >
             </div>
             <div class="form-group col-md-8">
-            	<label for="nombre">Nombre</label>
-            	<input type="text" name="nombre" class="form-control" value="{{$tutores->nombre}}">
+            	<label for="name">Nombre</label>
+            	<input type="text" name="name" class="form-control" value="{{$tutores->name}}">
             </div>
             <div class="form-group col-md-8">
             	<label for="apellidos">Apellidos</label>
@@ -44,16 +44,6 @@
                                   {{ Form::label('carrera', "Carrera:", ['class' => 'form-spacing-top']) }}
                                   {{ Form::select('carrera_id', $carre, null, ['class' => 'form-control']) }}
             </div>
-
-            <div class="form-group col-md-8">
-                                   <label for = "genero">Genero</label>
-                                   <select class="form-control" name="genero">
-                                     <option value='{{$tutores->sexo}}'> {{$tutores->sexo}} </option>
-                                                  <option value=''> Seleccione un Genero </option>
-                                                  <option value='Femenino'> Femenino</option>
-                                                  <option value='Masculino'> Masculino </option>   
-                                    </select>
-                              </div>
 
             <div class="form-group col-md-8">
             	<button class="btn btn-primary" type="submit">Guardar</button>

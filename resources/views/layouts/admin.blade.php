@@ -139,7 +139,7 @@
                     <li><a href="{{action('EstudianteController@create')}}"><i class="fa fa-circle-o text-aqua"></i> Agregar Nuevo Estudiante</a></li>
 
                     <li><a href="{{action('TutorController@index')}}"><i class="fa fa-circle-o text-yellow"></i> Indice de Tutores</a></li>
-                    <li><a href="{{action('TutorController@create')}}"><i class="fa fa-circle-o text-yellow"></i> Agregar Nuevo Tutor</a></li>
+                    
 
                      <li><a href="{{action('TutoriaController@index')}}"><i class="fa fa-circle-o text-green"></i> Indice de Tutorias</a></li>
                     <li><a href="{{action('TutoriaController@create')}}"><i class="fa fa-circle-o text-green"></i> Agregar Nueva Tutoria</a></li>

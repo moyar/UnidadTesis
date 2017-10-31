@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
+                            <label for="telefono" class="col-md-4 control-label">Telefono</label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}">
+
+                                @if ($errors->has('telefono'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telefono') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
                             <label for="rut" class="col-md-4 control-label">Rut</label>
 

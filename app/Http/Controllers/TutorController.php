@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tutor;
+use App\Profesor;
 use App\Carrera;
+use App\Tutoria;
+use App\user;
+use Auth;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use DB;
@@ -27,14 +31,13 @@ class TutorController extends Controller
         {
             $query=trim($request->get('searchText'));
             
-              $tutores = Tutor::orderBy('id_tutor', 'desc')
-            ->where('nombre','LIKE','%'.$query.'%')          
-            ->orwhere('rut','LIKE','%'.$query.'%')            
-            ->orwhere('apellidos','LIKE','%'.$query.'%')           
-            ->orwhere('telefono','LIKE','%'.$query.'%')            
-            ->orwhere('email','LIKE','%'.$query.'%') 
+           
+             $tutores = User::where('rol_id','=',4)->orderBy('id', 'desc')
+                         ->where('name','LIKE','%'.$query.'%')
+                         ->orwhere('apellidos','LIKE','%'.$query.'%')->where('rol_id','=',4)
+                         ->orwhere('email','LIKE','%'.$query.'%')->where('rol_id','=',4)
             ->paginate(10);
-
+          
 
             return view('administracion.tutor.index',["tutores"=>$tutores,"searchText"=>$query]);
         }
@@ -49,11 +52,10 @@ class TutorController extends Controller
     public function store (Request $request)
     {
         $carrera = Carrera::find($request->carrera_id);
-        $tutores=new Tutor;
+        $tutores=new User;
         $tutores->rut=$request->get('rut');
-        $tutores->nombre=$request->get('nombre');
+        $tutores->name=$request->get('name');
         $tutores->apellidos=$request->get('apellidos');
-        $tutores->telefono=$request->get('telefono');
         $tutores->email=$request->get('email');
         $tutores->carreras()->associate($carrera);  
         $tutores->sexo=$request->get('genero');
@@ -64,13 +66,16 @@ class TutorController extends Controller
 
     public function show($id)
     {
-        return view("administracion.tutor.show",["tutores"=>Tutor::findOrFail($id)]);
+        $tutorias = Tutoria::where('tutores_id','=',$id)->get();
+        $tutores = User::findOrFail($id);
+        
+        return view("administracion.tutor.show",compact('tutores','tutorias'));
     }
     public function edit($id)
     {
 
         $carreras = Carrera::all();
-        $tutores = Tutor::find($id);
+        $tutores = User::find($id);
         
         $carre = array();
         foreach ($carreras as $carrer) {
@@ -93,13 +98,12 @@ class TutorController extends Controller
         $tutores->telefono=$request->get('telefono');
         $tutores->email=$request->get('email');
         $tutores->carrera_id = $request->carrera_id;
-        $tutores->sexo=$request->get('genero');
         $tutores->update();
         return Redirect::to('administracion/tutor');
     }
     public function destroy($id)
     {
-        $tutores=Tutor::findOrFail($id);
+        $tutores=User::findOrFail($id);
         $tutores->delete();
        
         return Redirect::to('administracion/tutor');

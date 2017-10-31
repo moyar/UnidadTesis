@@ -72,6 +72,7 @@ class Userscontroller extends Controller
         $usuarios->email = $request->get('email');
         $usuarios->password = bcrypt($request->get('password'));
         $usuarios->roles()->associate($roles);  
+        $user->telefono = $request->get('telefono');
         $usuarios->save();
        
         return Redirect::to('administracion/usuarios');
@@ -145,6 +146,7 @@ class Userscontroller extends Controller
             $user->password = Hash::make($password);
         }
         $user->rol_id = $request->rol_id;
+        $user->telefono = $request->get('telefono');
 
         $user->save();
        // $user->saveRoles($request->get('role'));
@@ -186,11 +188,13 @@ class Userscontroller extends Controller
         if ($password != "") {
             $user->password = Hash::make($password);
         }
-        
+        $user->telefono = $request->get('telefono');
 
         $user->save();
        // $user->saveRoles($request->get('role'));
 
         return redirect(action('UsersController@perfil'))->with('status', 'El Usuario ha sido modificado!');
      }
+
+
 }

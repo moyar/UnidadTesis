@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Tutores <a href="tutor/create"><button class="btn btn-success">Nuevo</button></a></h3>
+		<h3>Listado de Tutores</h3>
 		@include('administracion.tutor.search')
 	</div>
 </div>
@@ -24,16 +24,16 @@
 				<tr>
 					
 					<td>{{ $use->rut}}</td>
-					<td>{{ $use->nombre}}</td>
+					<td>{{ $use->name}}</td>
 					<td>{{ $use->apellidos}}</td>
 					<td>{{ $use->email}}</td>
 					<td>{{ $use->Carreras->nombre}}</td>
 
 					<td>
-						<a href="{{URL::action('TutorController@edit',$use->id_tutor)}}"><button class="btn btn-info">Editar</button></a>
-                        <a href="" data-target="#modal-delete-{{$use->id_tutor}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+						<a href="{{URL::action('TutorController@edit',$use->id)}}"><button class="btn btn-info">Editar</button></a>
+                        <a href="" data-target="#modal-delete-{{$use->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 
-                        <a href="{{URL::action('TutorController@show',$use->id_tutor)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a>
+                        <a href="{{URL::action('TutorController@show',$use->id)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a>
 					</td>
 				</tr>
 				@include('administracion.tutor.modal')

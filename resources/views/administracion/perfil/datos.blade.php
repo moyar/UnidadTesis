@@ -48,7 +48,14 @@
                         </div>
                     </div>
                    
+                    <div class="form-group">
+                        <label for="telefono" class="col-lg-2 control-label">Telefono</label>
 
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono"
+                                   value="{{ $usu->telefono }}">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="email" class="col-lg-2 control-label">Email</label>
 

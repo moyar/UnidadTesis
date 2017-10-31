@@ -28,6 +28,7 @@ Route::group(['middleware' => 'guardian'], function () {
 	Route::resource('administracion/taller','TallerController');
 	Route::resource('administracion/carrera','CarreraController');
 
+	
 	//tutoria
 	Route::get('administracion/tutoria/asistencia/{id}','TutoriaController@crear');
 	Route::get('administracion/tutoria/gestionar/{id}','TutoriaController@mostrarGestionar');

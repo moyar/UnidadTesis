@@ -131,7 +131,7 @@ class ProfesorController extends Controller
         if ($password != "") {
             $user->password = Hash::make($password);
         }
-        
+         $user->telefono = $request->get('telefono');
 
         $user->save();
        // $user->saveRoles($request->get('role'));
