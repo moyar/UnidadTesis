@@ -1,5 +1,6 @@
 @extends ('layouts.admin')
 @section ('contenido')
+<div class="well well bs-component">
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>{{$tutorias->asignaturas->nombre}}</h3>
@@ -14,7 +15,7 @@
 	<a href="{{URL::action('TutoriaController@ver',$tutorias->id)}}"><button class="btn btn-warning">Ver Asistencia</button></a>
 	<h1> </h1>
 </div>
-
+</div>
 <div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="table-responsive">

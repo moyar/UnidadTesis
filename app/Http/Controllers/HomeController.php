@@ -6,13 +6,15 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Tutoria;
 use App\Taller;
+use App\User;
 use App\Tutor;
+use App\Carrera;
 use App\Estudiante;
 use App\Asignatura;
 use App\Asistencia;
 use App\Fecha_tutoria;
 use App\Estudiante_fecha;
-
+use Illuminate\Support\Facades\Redirect;
 use Session;
 use DB;
 use Illuminate\Support\Collection;
@@ -39,9 +41,41 @@ class HomeController extends Controller
     {
         $estudiante = Estudiante::all()->count();
         $tutorias = Tutoria::all()->count();
-        $tutores = Tutor::all()->count();
+        $tutores = User::where('rol_id','=','4')->count();
         $talleres = Taller::all()->count();
        
         return view('home', compact('tutorias', 'estudiante','tutores','talleres'));
+    }
+
+    public function editar(){
+     
+        $carrera = Carrera::all();
+        return view('auth/datos',compact('carrera'));
+    }
+    public function store(Request $request)
+    {
+      
+
+        
+        $carrera = Carrera::find($request->carrera_id);
+        $usuarios=new Estudiante;
+        $usuarios->rut=$request->get('rut');
+        $usuarios->nombre=$request->get('nombre');
+        $usuarios->apellidos=$request->get('apellidos');
+        $usuarios->telefono=$request->get('telefono');
+        $usuarios->email=$request->get('email');
+        $usuarios->carreras()->associate($carrera);    
+        $usuarios->fecha_nacimiento=$request->get('fecha_nacimiento');
+        $usuarios->sexo=$request->get('genero');
+        $usuarios->tipo_ingreso=$request->get('ingreso');
+        $usuarios->año_ingreso=$request->get('año_ingreso');
+        $usuarios->ciudad_procedencia=$request->get('ciudadP');
+        $usuarios->quintil=$request->get('quintil');
+        $usuarios->nombre_apoderado=$request->get('nombresA');
+        $usuarios->apellidos_apoderado=$request->get('apellidosA');
+        $usuarios->telefono_apoderado=$request->get('telefonoA');
+        $usuarios->activo = 0;
+        $usuarios->save();
+        return Redirect::to('home');
     }
 }

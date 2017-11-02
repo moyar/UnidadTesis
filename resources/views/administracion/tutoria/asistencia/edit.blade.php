@@ -6,15 +6,16 @@
 
 		{!!Form::open(array('action'=>['TutoriaController@updateL',$fecha_tutoria->id_f],'method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-
+<div class="well well bs-component">
 <input name="_method" type="hidden" value="PUT">
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Listado de Alumnos </h3>
 		<h5 class="col-md-6">{{$tutorias->asignaturas->nombre}}</h5>
-		<h5 class="col-md-6"> Tutor: {{$tutorias->tutores->nombre}} {{$tutorias->tutores->apellidos}}</h5>
+		<h5 class="col-md-6"> Tutor: {{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h5>
 		<h3> </h3>
 	</div>
+</div>
 </div>
 <div class="row">
 		

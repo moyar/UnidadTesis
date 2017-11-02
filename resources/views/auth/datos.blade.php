@@ -1,52 +1,50 @@
-@extends ('layouts.admin')
-@section ('contenido')
+@extends('layouts.app')
 
+@section('content')
 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-<div class="well well bs-component">
-<div class="row">
+  <div class="well well bs-component">
+    <div class="row">
  
-      
-  
-      <h3 style="border-bottom-style: solid;">Nuevo Estudiante</h3>
-
-      @if (count($errors)>0)
-      <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-        @endforeach
-        </ul>
-      </div>
-      @endif
+      <h3 style="border-bottom-style: solid;"><center>Nuevo Estudiante</center></h3>
+      <h1> </h1>
+			@if (count($errors)>0)
+			<div class="alert alert-danger">
+				<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{$error}}</li>
+				@endforeach
+				</ul>
+			</div>
+			@endif
             
-            {!!Form::open(array('url'=>'administracion/estudiante','method'=>'POST','autocomplete'=>'off'))!!}
+            {!!Form::open(array('url'=>'auth/datos','method'=>'POST','autocomplete'=>'off'))!!}
              {{Form::token()}}
              <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                     
                 
                       
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                           <div class="form-group col-md-12" >
+                           <div class="form-group col-md-10" >
                                     <label for="rut">Rut</label>
                                     <input type="text" name="rut" required class="form-control" placeholder="Rut..." >
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" required class="form-control" placeholder="Nombre...">
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                     <label for="apellidos">Apellidos</label>
                                     <input type="text" name="apellidos" required class="form-control" placeholder="apellidos...">
                               </div>
-                               <div class="form-group col-md-12">
+                               <div class="form-group col-md-10">
                                     <label for="telefono">Telefono</label>
                                     <input type="text" name="telefono" required class="form-control" placeholder="Telefono...">
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                     <label for="email">Email</label>
                                     <input type="text" name="email"  required class="form-control" placeholder="Email...">
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                              <label for = "carrera">Carrera</label>
                              
                              <label for = "carrera_id">Carrera</label>
@@ -66,7 +64,7 @@
                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                              
 
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                   <label for="fecha">Fecha de Nacimiento</label>
                                   <div class="input-group date">
                                       <input type="text" name="fecha_nacimiento" required class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
@@ -85,7 +83,7 @@
                                 });  
                                 });
                               </script>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                    <label for = "genero">Genero</label>
                                    <select class="form-control" required name="genero">
                                                   <option value=''> Seleccione un Genero </option>
@@ -93,7 +91,7 @@
                                                   <option value='Masculino'> Masculino </option>   
                                     </select>
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                    <label for = "ingreso">Tipo de Ingreso</label>
                                    <select class="form-control" required name="ingreso">
                                                   <option value=''> Seleccione Ingreso </option>
@@ -101,16 +99,16 @@
                                                   <option value='Especial'> Especial </option>   
                                     </select>
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                     <label for="año_ingreso">Año de Ingreso</label>
                                     <input type="text" name="año_ingreso" required class="form-control" placeholder="Ingrese el año...">
                               </div>
                               
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                     <label for="ciudadP">Ciudad de Procedencia</label>
                                     <input type="text" name="ciudadP" required class="form-control" placeholder="Ingrese ciudad de Procedencia...">
                               </div>
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-10">
                                    <label for = "quintil">Quintil</label>
                                    <select class="form-control" name="quintil">
                                                   <option value=''> Seleccione Quintil </option>
@@ -127,21 +125,21 @@
                         
                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             
-                               <div class="form-group col-md-12">
+                               <div class="form-group col-md-10">
                                     <label for="nombresA">Nombres Apoderado</label>
                                     <input type="text" name="nombresA" required class="form-control" placeholder="Ingrese el nombre del Apoderado...">
                               </div>
-                               <div class="form-group col-md-12">
+                               <div class="form-group col-md-10">
                                     <label for="apellidosA">Apellidos Apoderado</label>
                                     <input type="text" name="apellidosA" required class="form-control" placeholder="Ingrese los apellidos del Apoderado...">
                               </div>
-                               <div class="form-group col-md-12">
+                               <div class="form-group col-md-10">
                                     <label for="telefonoA">Telefono Apoderado</label>
                                     <input type="text" name="telefonoA" required class="form-control" placeholder="Ingrese el Telefono del Apoderado...">
                                    
                               </div>
 
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-10">
                                     
                                     <button class="btn btn-success" type="submit">Finalizar Expediente</button>
                               </div>
@@ -153,14 +151,12 @@
 
                   
                   
-      {!!Form::close()!!}   
+			{!!Form::close()!!}		
 
-    </div> 
+		</div> 
     </div>        
    </div> 
 </div>
 
-</script>
 
 @endsection
-

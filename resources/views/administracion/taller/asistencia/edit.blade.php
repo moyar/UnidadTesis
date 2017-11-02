@@ -6,14 +6,15 @@
 
 		{!!Form::open(array('action'=>['TallerController@updateL',$fecha_taller->id_t],'method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-
-<input name="_method" type="hidden" value="PUT">
-<div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Alumnos </h3>
-		<h5 class="col-md-6">{{$talleres->categorias->nombre}}</h5>
-		
-		<h3> </h3>
+<div class="well well bs-component">
+	<input name="_method" type="hidden" value="PUT">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<h3>Listado de Alumnos </h3>
+			<h5 class="col-md-6">{{$talleres->categorias->nombre}}</h5>
+			
+			<h3> </h3>
+		</div>
 	</div>
 </div>
 <div class="row">

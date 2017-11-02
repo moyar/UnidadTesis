@@ -108,7 +108,8 @@ class TallerController extends Controller
         $estudiantes = Estudiante::all();
         $estu = array();
         foreach ($estudiantes as $estudiante) {
-            $estu[$estudiante->id_user] = $estudiante->nombre;
+            $nombre = "$estudiante->nombre $estudiante->apellidos";
+            $estu[$estudiante->id_user] = $nombre;
         }
 
 

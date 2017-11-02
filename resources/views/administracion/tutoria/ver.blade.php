@@ -1,6 +1,6 @@
 @extends ('layouts.admin')
 @section ('contenido')
-
+<div class="well well bs-component">
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Asistencia del curso</h3>
@@ -8,6 +8,7 @@
 		<h4>{{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h4>
 		<h4>Numero de Sesiones: {{$fecha_tutoria->count()}}</h4>
 	</div>
+</div>
 </div>
 <style type="text/css">
 th{

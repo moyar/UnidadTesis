@@ -1,17 +1,19 @@
 @extends ('layouts.admin')
 @section ('contenido')
-<div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>{{$talleres->categorias->nombre}}</h3>
-	
+<div class="well well bs-component">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<h3>{{$talleres->categorias->nombre}}</h3>
+		
+		</div>
 	</div>
-</div>
-<div>
-	
-	<a href="{{URL::action('TallerController@edit',$talleres->id)}}"><button class="btn btn-info">Editar</button></a>
-	<a href="{{URL::action('TallerController@crear',$talleres->id)}}"><button class="btn btn-success">Crear Asistencia</button></a>
-	<a href="{{URL::action('TallerController@ver',$talleres->id)}}"><button class="btn btn-warning">Ver Asistencia</button></a>
-	<h1> </h1>
+	<div>
+		
+		<a href="{{URL::action('TallerController@edit',$talleres->id)}}"><button class="btn btn-info">Editar</button></a>
+		<a href="{{URL::action('TallerController@crear',$talleres->id)}}"><button class="btn btn-success">Crear Asistencia</button></a>
+		<a href="{{URL::action('TallerController@ver',$talleres->id)}}"><button class="btn btn-warning">Ver Asistencia</button></a>
+		<h1> </h1>
+	</div>
 </div>
 
 <div class="row">

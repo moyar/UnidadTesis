@@ -1,9 +1,10 @@
 @extends ('layouts.admin')
 
 @section ('contenido')
+<div class="well well bs-component">
 	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Grupo Taller</h3>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<h3 style="border-bottom-style: solid;">Nuevo Grupo Taller</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -16,6 +17,7 @@
 
 			{!!Form::open(array('url'=>'administracion/taller','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
+            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="form-group col-md-8">
             	<label for="nombre_grupo">Grupo </label>
@@ -60,10 +62,10 @@
             </div>
 
 			{!!Form::close()!!}
-            
+            </div>
 		</div>
 	</div>
-	
+</div>	
 	
 @endsection
 

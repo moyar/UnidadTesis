@@ -3,13 +3,15 @@
 @section ('contenido')
 {!!Form::open(array('url'=>'administracion/taller/asistencia/asi','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-<div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Alumnos </h3>
-		<h5 class="col-md-6">{{$talleres->categorias->nombre}}</h5>
-		
-		<h3> </h3>
-	</div>
+ <div class="well well bs-component">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+				<h3>Listado de Alumnos </h3>
+				<h5 class="col-md-6">{{$talleres->categorias->nombre}}</h5>
+				
+				<h3> </h3>
+			</div>
+		</div>
 </div>
 <div class="row">
 		
@@ -35,7 +37,9 @@
 				
 				@endforeach
 			</table>
-		<button class="btn btn-info col-md-6 " type="submit">Guardar</button>
+			<div class="form-group col-md-8">
+				<button class="btn btn-info " type="submit">Guardar</button>
+			</div>
 		</div>
 	</div>
 	

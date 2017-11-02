@@ -2,8 +2,8 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Estudiantes <a href="estudiante/create"><button class="btn btn-success">Nuevo</button></a></h3>
-		@include('administracion.estudiante.search')
+		<h3>Listado de Estudiantes Nuevos</h3>
+		@include('administracion.nuevo.search')
 	</div>
 </div>
 
@@ -32,17 +32,18 @@
 					<td><center>{{$use->carreras->nombre}}</center></td>
 					<td>
 
-						 
-
-						<a href="{{URL::action('EstudianteController@edit',$use->id_user)}}"><button class="btn btn-info">Editar</button></a>
-                         <a href="" data-target="#modal-delete-{{$use->id_user}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
-                         <a href="{{URL::action('EstudianteController@datos',$use->id_user)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a>
+						 {!!Form::open(array('url'=>'administracion/nuevo','method'=>'POST','autocomplete'=>'off'))!!}
+             			{{Form::token()}}
+            			 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            			 <input type="hidden" name="usuId" value="{{ $use->id_user }}">
+						 <button class="btn btn-success" type="submit">Aceptar</button>
+                         {!!Form::close()!!}	
                          
 					</td>
 				</tr>
-				@include('administracion.estudiante.modal')
+			
 				@endforeach
-				
+			
 			</table>
 		</div>
 	</div>

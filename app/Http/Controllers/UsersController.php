@@ -68,11 +68,12 @@ class Userscontroller extends Controller
         $usuarios->name = $request->get('name'); 
         $usuarios->apellidos = $request->get('apellidos'); 
         $usuarios->rut = $request->get('rut'); 
+        $usuarios->telefono = $request->get('telefono');
         $usuarios->carreras()->associate($carrera); 
         $usuarios->email = $request->get('email');
         $usuarios->password = bcrypt($request->get('password'));
         $usuarios->roles()->associate($roles);  
-        $user->telefono = $request->get('telefono');
+       
         $usuarios->save();
        
         return Redirect::to('administracion/usuarios');

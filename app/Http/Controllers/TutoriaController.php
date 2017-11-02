@@ -336,7 +336,7 @@ class TutoriaController extends Controller
           
             //dd($r->ausente);
             $mensaje = "Estimado Director(a) $director->name $director->apellidos le comunico a ud,   que     el Alumno $estudiante->nombre 
-                        $estudiante->apellidos, rut $estudiante->rut posee $r->ausente ausencias en la 
+                        $estudiante->apellidos, Rut $estudiante->rut posee $r->ausente ausencias en la 
                         asignatura de $asignatura, por lo que ha sido enviada una alerta para su 
                         conocimiento.";
             

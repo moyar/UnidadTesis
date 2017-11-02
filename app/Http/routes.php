@@ -21,12 +21,15 @@ Route::group(['middleware' => 'guardian'], function () {
 
 
 	Route::resource('administracion/estudiante','EstudianteController');
+	Route::resource('administracion/nuevo','EstudianteNuevoController');
 	Route::resource('administracion/tutor','TutorController');
 	Route::resource('administracion/asignatura','AsignaturasController');
 	Route::resource('administracion/categoria','CategoriaController');
 	Route::resource('administracion/tutoria','TutoriaController');
 	Route::resource('administracion/taller','TallerController');
 	Route::resource('administracion/carrera','CarreraController');
+
+	Route::get('administracion/estudiante/nuevos','EstudianteController@nuevo');
 
 	
 	//tutoria
@@ -137,4 +140,6 @@ Route::group(['middleware' => 'guardian4'], function () {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/auth/datos','HomeController@editar');
+Route::post('/auth/datos','HomeController@store');
 Route::get('/', 'HomeController@index');

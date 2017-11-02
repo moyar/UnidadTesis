@@ -139,32 +139,5 @@ class ProfesorController extends Controller
         return redirect(action('ProfesorController@perfil'))->with('status', 'El Usuario ha sido modificado!');
      } 
 
-  /*  public function correo(Request $r){
-
-            $tutoria = Tutoria::find($r->tutoriaId);
-            $asignatura= $tutoria->asignaturas->nombre;
-            $estudiante = Estudiante::find($r->Id);
-            $director = User::where('carrera_id','=',$estudiante->carrera_id)->first();
-          
-            //dd($r->ausente);
-            $mensaje = "Estimado Director(a) $director->name $director->apellidos le comunico a ud,   que     el Alumno $estudiante->nombre 
-                        $estudiante->apellidos, rut $estudiante->rut posee $r->ausente ausencias en la 
-                        asignatura de $asignatura, por lo que ha sido enviada una alerta para su 
-                        conocimiento.";
-            
-            
-          $data = array(
-            'email' => 'plataformaUAAEP@gmail.com',
-            'to'    => $director->email,
-            'subject' => "Ausencia tutorias de $asignatura",
-            'bodyMessage' => $mensaje 
-            );
-
-        Mail::send('administracion.emailC', $data, function($message) use ($data){
-            $message->from($data['email']);
-            $message->to($data['to']);
-            $message->subject($data['subject']);
-        });
-         return Redirect::to(action('TutoriaController@ver',$r->tutoriaId));
-    }*/
+  
 }

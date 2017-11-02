@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p><b>Grupales:</b></p>
-                                            <p>Espacio extracurricular de acompañamiento y fortalecimiento académico, centradoen la revisión de contenidos específicos de asignaturas consideradas de alta
+                                            <p>Espacio extracurricular de acompañamiento y fortalecimiento académico, centrado en la revisión de contenidos específicos de asignaturas consideradas de alta
                                             reprobación.</p>
                                         </div>
                                     </div>
@@ -131,6 +131,6 @@
                     <!-- /.panel -->
                 </div>
         </div>
-    </div>
-</div>
+ </div>
+
 @endsection

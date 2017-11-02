@@ -36,7 +36,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo" style="background-color: #bb302d;>
+        <a href="/" class="logo" style="background-color: #bb302d;>
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>Sistema</b><b style="color: #800080">U</b><b style="color: green">AA</b><b style="color: #f8b71e">E</b><b style="color:green">P</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -119,6 +119,7 @@
 
                     <li><a href="{{action('CarreraController@index')}}"><i class="fa fa-circle-o text-yellow"></i> Indice de Carreras</a></li>
                     <li><a href="{{action('CarreraController@create')}}"><i class="fa fa-circle-o text-yellow"></i> Agregar Nueva Carrera</a></li>
+                     <li><a href="{{action('EstudianteNuevoController@index')}}"><i class="fa fa-circle-o text-green"></i> Indice de Estudiantes Nuevos</a></li>
                   
                   </ul>
                 </li>

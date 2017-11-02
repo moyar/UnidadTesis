@@ -40,13 +40,12 @@ class EstudianteController extends Controller
         if ($request)
         {
             $query=trim($request->get('searchText'));
-            
-             $usuarios = Estudiante::orderBy('id_user', 'desc')
-            ->where('nombre','LIKE','%'.$query.'%')          
-            ->orwhere('rut','LIKE','%'.$query.'%')            
-            ->orwhere('apellidos','LIKE','%'.$query.'%')           
-            ->orwhere('telefono','LIKE','%'.$query.'%')            
-            ->orwhere('email','LIKE','%'.$query.'%') 
+            $usuarios = Estudiante::where('activo','=',1)->orderBy('id_user', 'desc')
+                         ->where('nombre','LIKE','%'.$query.'%')
+                         ->orwhere('rut','LIKE','%'.$query.'%')->where('activo','=',1)
+                         ->orwhere('apellidos','LIKE','%'.$query.'%')->where('activo','=',1)
+                         ->orwhere('telefono','LIKE','%'.$query.'%')->where('activo','=',1)
+                         ->orwhere('email','LIKE','%'.$query.'%')->where('activo','=',1)
             ->paginate(10);
 
 
@@ -62,6 +61,7 @@ class EstudianteController extends Controller
     }
     public function store (Request $request)
     {
+      
         
         $carrera = Carrera::find($request->carrera_id);
         $usuarios=new Estudiante;
@@ -80,6 +80,7 @@ class EstudianteController extends Controller
         $usuarios->nombre_apoderado=$request->get('nombresA');
         $usuarios->apellidos_apoderado=$request->get('apellidosA');
         $usuarios->telefono_apoderado=$request->get('telefonoA');
+        $usuarios->activo = 1;
         $usuarios->save();
         return Redirect::to('administracion/estudiante');
     }
@@ -213,7 +214,5 @@ class EstudianteController extends Controller
      
 
     }
-
-    
     
 }

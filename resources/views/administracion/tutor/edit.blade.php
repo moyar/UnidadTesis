@@ -1,11 +1,12 @@
 
 @extends ('layouts.admin')
 @section ('contenido')
+<div class="well well bs-component">
 	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		
        <h4 style="color: green;"><b>Editar Tutor</b> </h4>
-       <h3>{{ $tutores->nombre}} {{ $tutores->apellidos}}</h3>
+       <h3 style="border-bottom-style: solid;">{{ $tutores->name}} {{ $tutores->apellidos}}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -18,6 +19,7 @@
 
 			{!!Form::model($tutores,['method'=>'PATCH','route'=>['administracion.tutor.update',$tutores->id_tutor]])!!}
             {{Form::token()}}
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group col-md-8">
             	<label for="rut">Rut</label>
             	<input type="text" name="rut" class="form-control" value="{{$tutores->rut}}" >
@@ -51,7 +53,8 @@
             </div>
 
 			{!!Form::close()!!}		
-            
+            </div>
+        </div>
 		</div>
 	</div>
 @endsection
