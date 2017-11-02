@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
 
-<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+<div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
 <div class="well well bs-component">
 <div class="row">
  
@@ -25,7 +25,7 @@
                     
                 
                       
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                            <div class="form-group col-md-12" >
                                     <label for="rut">Rut</label>
                                     <input type="text" name="rut" required class="form-control" placeholder="Rut..." >
@@ -63,7 +63,7 @@
                         </div>
                         
                         
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                              
 
                               <div class="form-group col-md-12">
@@ -125,7 +125,7 @@
 
                         </div>
                         
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             
                                <div class="form-group col-md-12">
                                     <label for="nombresA">Nombres Apoderado</label>

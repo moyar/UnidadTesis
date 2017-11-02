@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-1">
            <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Plataforma UAAEP Universidad Austral de Chile
@@ -75,8 +75,10 @@
                 </div>
             </div>
             <ul class="timeline">
-                 <li>
-                     <div class="timeline-badge"><i class="fa fa-check"></i> </div>
+                 <li >
+                     
+                      
+                        <div class="timeline-badge warning"><i class="fa fa-check"></i> </div>
                                     <div class="timeline-panel" style="background: purple;color:white;">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title"><i class="fa fa-book fx-5x"></i>  Tutorías Académicas</h4>
@@ -87,8 +89,10 @@
                                             reprobación.</p>
                                         </div>
                                     </div>
+                            
                                 </li>
                                 <li class="timeline-inverted">
+                                   
                                     <div class="timeline-badge warning"><i class="fa fa-clock-o"></i>
                                     </div>
                                     <div class="timeline-panel" style="background: #018989;color:white;">
@@ -106,10 +110,12 @@
                                             </p>
                                             
                                         </div>
+                                
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-group"></i>
+                                    
+                                    <div class="timeline-badge warning"><i class="fa fa-group"></i>
                                     </div>
                                     <div class="timeline-panel" style="background: #FFBF00;color: white;">
                                         <div class="timeline-heading">
@@ -123,6 +129,7 @@
                                             </p>
                                         </div>
                                     </div>
+                                
                                 </li>
                             </ul>
                         </div>

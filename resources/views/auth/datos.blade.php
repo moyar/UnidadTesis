@@ -23,7 +23,7 @@
                     
                 
                       
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                            <div class="form-group col-md-10" >
                                     <label for="rut">Rut</label>
                                     <input type="text" name="rut" required class="form-control" placeholder="Rut..." >
@@ -61,7 +61,7 @@
                         </div>
                         
                         
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                              
 
                               <div class="form-group col-md-10">
@@ -123,7 +123,7 @@
 
                         </div>
                         
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             
                                <div class="form-group col-md-10">
                                     <label for="nombresA">Nombres Apoderado</label>

@@ -11,6 +11,8 @@
   <div class="tab-content">
 
 <div id="home" class="tab-pane fade in active">
+
+       <div class="well well bs-component">
       <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                 @if (count($errors)>0)
@@ -26,27 +28,27 @@
           <h1> </h1>
           <form class="form-horizontal">
               <div class="form-group">
-               <label  class="control-label label-default col-sm-2 col-form-label ">Rut:</label>
+               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Rut:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->rut}}</p>
               </div>
-              <label  class="control-label label-default col-sm-2 col-form-label ">Nombre:</label>
+              <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Nombre:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->name}}</p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-form-label ">Apellidos:</label>
+               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Apellidos:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->apellidos}}</p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-form-label ">Telefono:</label>
+               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Telefono:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->telefono}}</p>
               </div>
-                 <label  class="control-label label-default col-sm-2 col-form-label ">Correo:</label>
+                 <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Correo:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->email}}</p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-form-label ">Carrera:</label>
+               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Carrera:</label>
               <div class="col-xs-10">
                   <p class="form-control-static">{{$tutores->carreras->nombre}}</p>
               </div>
@@ -55,7 +57,7 @@
             
          </form>
         </div>
-    
+    </div>
 </div>
 
 
