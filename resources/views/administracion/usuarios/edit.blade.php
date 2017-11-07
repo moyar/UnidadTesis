@@ -98,8 +98,8 @@
 
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            <button type="reset" class="btn btn-default">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
+                            {!! Html::link('administracion/usuarios', 'Cancelar',  array('class' => 'btn btn-danger')) !!}                            
                         </div>
                     </div>
                 </fieldset>

@@ -2,16 +2,18 @@
 @section ('contenido')
 <div class="well well bs-component">
 	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>{{$talleres->categorias->nombre}}</h3>
+		<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+			<h3></h3>
+			<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-calendar"></i> {{$talleres->categorias->nombre}}</center> </h3>
 		
 		</div>
 	</div>
 	<div>
-		
+		<center>
 		<a href="{{URL::action('TallerController@edit',$talleres->id)}}"><button class="btn btn-info">Editar</button></a>
 		<a href="{{URL::action('TallerController@crear',$talleres->id)}}"><button class="btn btn-success">Crear Asistencia</button></a>
 		<a href="{{URL::action('TallerController@ver',$talleres->id)}}"><button class="btn btn-warning">Ver Asistencia</button></a>
+	</center>
 		<h1> </h1>
 	</div>
 </div>

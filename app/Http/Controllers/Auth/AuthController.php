@@ -81,7 +81,7 @@ class AuthController extends Controller
     public function redirectPath(){
 
         if(auth()->user()->rol_id == 1){
-            return '/administracion/estudiante';
+            return '/administracion/nuevo';
         } 
         if(auth()->user()->rol_id == 2){
             return '/director/estudiante';

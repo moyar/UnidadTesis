@@ -5,7 +5,7 @@
   <div class="well well bs-component">
     <div class="row">
  
-      <h3 style="border-bottom-style: solid;"><center>Nuevo Estudiante</center></h3>
+      <h3 style="border-bottom-style: solid;"><center><i class="fa fa-user"></i> Nuevo Estudiante</center></h3>
       <h1> </h1>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
@@ -138,11 +138,22 @@
                                     <input type="text" name="telefonoA" required class="form-control" placeholder="Ingrese el Telefono del Apoderado...">
                                    
                               </div>
-
+                              <div class="form-group col-md-10">
+                              <label for = "motivo">Motivo</label>
+                             <select  required class="form-control" name="motivo">
+                                    <option value=''>Seleccionar Motivo</option>
+                                    <option value='1'>Atención Psicopedagógica</option>
+                                    <option value='2'>Solicitud de Tutorías</option>
+                                    <option value='3'>Ambos</option>
+                                </select>
+                              </div>
                                 <div class="form-group col-md-10">
                                     
                                     <button class="btn btn-success" type="submit">Finalizar Expediente</button>
                               </div>
+                            </div>
+
+                            
 
                        
                            

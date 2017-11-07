@@ -2,8 +2,8 @@
 @section ('contenido')
 <div class="well well bs-component">
 <div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>{{$tutorias->asignaturas->nombre}}</h3>
+	<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+		<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-book"></i> {{$tutorias->asignaturas->nombre}}</center> </h3>
 		<h4><b>Nombre Grupo Tutoría: </b>{{$tutorias->nombre_grupo}}</h4>
 		<h4><b>Nombre Tutor: </b>{{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h4>
 	</div>
@@ -21,16 +21,18 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th >Rut </th>
-					<th>Estudiante</th>
-					<th>Ficha</th>
+					<th ><center>Rut</center> </th>
+					<th><center>Estudiante</center></th>
+					<th><center>Correo</center></th>
+					<th><center>Ficha</center></th>
 					
 				</thead>
                @foreach ($estudiantes as $asi)
 				<tr>
-					<td>{!!$asi->rut!!}</td>
-					<td>{!!$asi->nombre!!} {!!$asi->apellidos!!}</td>
-           			<td><a href="{{URL::action('EstudianteController@datos',$asi->id_user)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a></td>
+					<td><center>{!!$asi->rut!!}</center></td>
+					<td><center>{!!$asi->nombre!!} {!!$asi->apellidos!!}</center></td>
+					<td><center>{!!$asi->email!!}</center></td>
+           			<td><center><a href="{{URL::action('EstudianteController@datos',$asi->id_user)}}"><button class="btn  btn-success"><i class="fa fa-fw fa-eye"></i>Ficha</button></a></center></td>
            			 
 				</tr>
 

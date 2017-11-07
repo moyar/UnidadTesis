@@ -81,6 +81,8 @@ class EstudianteController extends Controller
         $usuarios->apellidos_apoderado=$request->get('apellidosA');
         $usuarios->telefono_apoderado=$request->get('telefonoA');
         $usuarios->activo = 1;
+        $usuarios->motivo=$request->get('motivo');
+
         $usuarios->save();
         return Redirect::to('administracion/estudiante');
     }
@@ -124,7 +126,9 @@ class EstudianteController extends Controller
         $usuarios->nombre_apoderado=$request->get('nombresA');
         $usuarios->apellidos_apoderado=$request->get('apellidosA');
         $usuarios->telefono_apoderado=$request->get('telefonoA');
+        $usuarios->motivo=$request->get('motivo');
         $usuarios->update();
+        Alert::message('The end is near', 'danger');
         return Redirect::to('administracion/estudiante');
     }
     public function destroy($id)

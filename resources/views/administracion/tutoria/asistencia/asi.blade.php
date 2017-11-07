@@ -5,10 +5,10 @@
             {{Form::token()}}
  <div class="well well bs-component">
 	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Listado de Alumnos </h3>
-			<h5 class="col-md-6">{{$tutorias->asignaturas->nombre}}</h5>
-			<h5 class="col-md-6"> Tutor: {{$tutorias->users->name}} {{$tutorias->users->apellidos}} </h5>
+		<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+			<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-file-text"></i> Nueva Asistencia</center> </h3>
+			<h5 class="col-md-6"><b>Nombre Tutoría: </b>{{$tutorias->asignaturas->nombre}}</h5>
+			<h5 class="col-md-6"><b>Tutor: </b> {{$tutorias->users->name}} {{$tutorias->users->apellidos}} </h5>
 			<h3> </h3>
 		</div>
 	</div>
@@ -22,14 +22,16 @@
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
-					<th >Id </th>
+					<th >Rut </th>
 					<th>Estudiantes</th>
+					<th>Correo</th>
 					<th>Asistencia</th>
 				</thead>
                @foreach ($estudiantes as $asi)
 				<tr>
-					<td>{!!$asi->id_user!!}</td>
+					<td>{!!$asi->rut!!}</td>
 					<td>{!!$asi->nombre!!}</td>
+					<td>{!!$asi->email!!}</td>
 					<td>
 						<input type="checkbox" name="estado[]" value="{{$asi->id_user}}">
 					 </td>

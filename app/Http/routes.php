@@ -31,7 +31,7 @@ Route::group(['middleware' => 'guardian'], function () {
 
 	Route::get('administracion/estudiante/nuevos','EstudianteController@nuevo');
 
-	
+	Route::get('administracion/nuevo/correo/{id}','EstudianteNuevoController@correo');
 	//tutoria
 	Route::get('administracion/tutoria/asistencia/{id}','TutoriaController@crear');
 	Route::get('administracion/tutoria/gestionar/{id}','TutoriaController@mostrarGestionar');
@@ -65,7 +65,7 @@ Route::group(['middleware' => 'guardian'], function () {
 	Route::put('administracion/estudiante/editC/{id}','ComentarioController@update');
 	Route::delete('administracion/estudiante/datos/{id}','ComentarioController@eliminar');
 	//atencion individual
-	Route::post('administracion/estudiante/datos','AtencionController@store');
+	Route::post('administracion/estudiante/datoss','AtencionController@store');
 	Route::get('administracion/estudiante/editar/{id}','AtencionController@edit');
 	Route::put('administracion/estudiante/editA/{id}','AtencionController@update');
 	Route::delete('administracion/estudiante/comentarios/{id}','AtencionController@eliminar');
@@ -82,9 +82,9 @@ Route::group(['middleware' => 'guardian2'], function () {
 
 
 	Route::resource('director/estudiante','DirectorController');
+	Route::resource('director/nuevo','DirectorNuevoController');
 
 	Route::get('director/estudiante/datos/{id}','DirectorController@datos');
-
 	Route::post('director/estudiante/datos','ComentarioController@stored');
 	Route::get('director/estudiante/edit/{id}','ComentarioController@editd');
 	Route::put('director/estudiante/editC/{id}','ComentarioController@updated');

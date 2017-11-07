@@ -5,9 +5,9 @@
             {{Form::token()}}
  <div class="well well bs-component">
 		<div class="row">
-			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-				<h3>Listado de Alumnos </h3>
-				<h5 class="col-md-6">{{$talleres->categorias->nombre}}</h5>
+			<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+				<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-users"></i> Lista de Alumnos</center> </h3>
+				<h4 class="col-md-6">{{$talleres->categorias->nombre}}</h4>
 				
 				<h3> </h3>
 			</div>

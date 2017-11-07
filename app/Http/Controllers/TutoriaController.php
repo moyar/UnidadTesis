@@ -51,7 +51,8 @@ class TutoriaController extends Controller
      public function create()
     {
         $asignaturas = Asignatura::all();
-        $estudiantes = Estudiante::all();
+        $estudiantes = Estudiante::where('motivo','=',2)->where('activo','=',1)
+                                    ->orwhere('motivo','=',3)->where('activo','=',1)->get();
         $tutores = User::where('rol_id','=', 4)->get();
         $profesores = User::where('rol_id','=', 3)->get();
 
@@ -68,6 +69,8 @@ class TutoriaController extends Controller
         $tutoria->nombre_grupo = $request->nombre_grupo;
         $tutoria->asignaturas_id = $request->asignaturas_id;
         $tutoria->tutores_id = $request->tutores_id;
+        $tutoria->dia = $request->dia;
+        $tutoria->periodo = $request->periodo;
         $tutoria->semestre = $request->semestre;
         $tutoria->año = $request->año;
         $tutoria->profesor_id = $request->profesor_id;
@@ -132,10 +135,12 @@ class TutoriaController extends Controller
 
     
 
-        $estudiantes = Estudiante::all();
+        $estudiantes =  Estudiante::where('motivo','=',2)->where('activo','=',1)
+                                    ->orwhere('motivo','=',3)->where('activo','=',1)->get();
         $estu = array();
         foreach ($estudiantes as $estudiante) {
-            $estu[$estudiante->id_user] = $estudiante->nombre;
+            $nombre = "$estudiante->nombre $estudiante->apellidos";
+            $estu[$estudiante->id_user] = $nombre;
         }
 
 
@@ -151,6 +156,8 @@ class TutoriaController extends Controller
         $tutorias->asignaturas_id = $request->asignaturas_id;
         $tutorias->tutores_id = $request->tutores_id;
         $tutorias->semestre = $request->semestre;
+        $tutorias->dia = $request->dia;
+        $tutorias->periodo = $request->periodo;
         $tutorias->año = $request->año;
          $tutorias->profesor_id = $request->profesor_id;
         $tutorias->save();
@@ -321,7 +328,7 @@ class TutoriaController extends Controller
       
                
         }
-        //dd($estFinal);
+        
       
         return view('administracion.tutoria.ver',compact('tutorias','estFinal','fecha_tutoria','estu'));
        

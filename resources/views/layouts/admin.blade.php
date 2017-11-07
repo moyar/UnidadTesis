@@ -195,6 +195,7 @@
                     </a>
                     <ul class="treeview-menu">
                       <li><a href="{{action('DirectorController@index')}}"><i class="fa fa-circle-o text-red"></i> Indice de Estudiantes</a></li>
+                      <li><a href="{{action('DirectorNuevoController@index')}}"><i class="fa fa-circle-o text-green"></i> Solicitudes de Tutorías</a></li>
                       
                       
                     </ul>

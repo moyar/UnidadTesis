@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Tutorias <a href="{{action('TutoriaController@create')}}"><button class="btn btn-success">Nuevo</button></a></h3>
+		<h3><i class="fa fa-book"></i> Listado de Tutorias <a href="{{action('TutoriaController@create')}}"><button class="btn btn-success">Nuevo</button></a></h3>
 		@include('administracion.tutoria.search')
 	</div>
 
@@ -17,6 +17,8 @@
 					<th><center>Grupo</center></th>
 					<th><center>Asignatura</center></th>
 					<th><center>Tutor</center></th>
+					<th><center>Día</center></th>
+					<th><center>Período</center></th>
 					<th><center>Semestre</center></th>
 					<th><center>Año</center></th>
 					<th><center>Opciones</center></th>
@@ -30,6 +32,8 @@
 							<td><center>{{ $post->nombre_grupo }}</center></td>
 							<td><center>{{$post->asignaturas->nombre}}</center></td>
 							<td><center>{{$post->users->name}} {{$post->users->apellidos}}</center></td>
+							<td><center>{{ $post->dia}}</center></td>
+						    <td><center>{{ $post->periodo}}</center></td>
 							<td><center>{{ $post->semestre}}</center></td>
 							<td><center>{{ $post->año}}</center></td>
 							

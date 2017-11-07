@@ -19,6 +19,7 @@ use Session;
 use DB;
 use Illuminate\Support\Collection;
 use Response;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -75,6 +76,39 @@ class HomeController extends Controller
         $usuarios->apellidos_apoderado=$request->get('apellidosA');
         $usuarios->telefono_apoderado=$request->get('telefonoA');
         $usuarios->activo = 0;
+        $usuarios->motivo = $request->get('motivo');
+
+        if($usuarios->motivo == 2 || $usuarios == 3){
+
+             $director = User::where('carrera_id','=',$usuarios->carrera_id)->first();
+            $nombre_alumno = "$usuarios->nombre  $usuarios->apellidos";
+      
+          if($usuarios->motivo == 2 ){
+              $mensaje = "Estimado Director(a) $director->name $director->apellidos se comunica a ud,   que     el Alumno $nombre_alumno, Rut $usuarios->rut,  solicíto Tutorías a la UAAEP.";
+            
+            } 
+            else{
+                if($usuarios->motivo == 3 ){
+                  $mensaje = "Estimado Director(a) $director->name $director->apellidos se comunica a ud,   que     el Alumno $nombre_alumno, Rut $usuarios->rut,  solicíto Tutorías y Atención Psicopedagógica a la UAAEP.";
+                }
+        }
+              
+          $data = array(
+            'email' => 'plataformaUAAEP@gmail.com',
+            'to'    => $director->email,
+            'subject' => "Solicitudes a PlataformaUAAEP",
+            'bodyMessage' => $mensaje 
+            );
+
+        Mail::send('administracion.emailC', $data, function($message) use ($data){
+                $message->from($data['email']);
+                $message->to($data['to']);
+                $message->subject($data['subject']);
+            });
+
+        }
+
+        
         $usuarios->save();
         return Redirect::to('home');
     }

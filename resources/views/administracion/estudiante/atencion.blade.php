@@ -36,7 +36,7 @@
 							<td><center>{{ $aten->autor }}</center></td>
 							<td><center>{{ $aten->citadas }}</center></td>
 							<td><center>{{ $aten->asistidas }}</center></td>
-							<td><center>{{ round(($aten->asistidas * 100)/($aten->citadas))}}</center></td>
+							<td><center>{{ round(($aten->asistidas * 100)/($aten->citadas))}}%</center></td>
 							<td><center>{{ $aten->diagnostico }}</center></td>
 							<td><center>{{ $aten->derivaciones }}</center></td>
 							<td><center>{{ $aten->observacion }}</center></td>

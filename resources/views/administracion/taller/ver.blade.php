@@ -2,8 +2,8 @@
 @section ('contenido')
 
 <div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h4 style="color: green;"><b>Asistencia del Taller</b></h4>
+	<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+		<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-calendar"></i> Asistencia Taller</center> </h3>
 		<h3>{{$talleres->categorias->nombre}}</h3>
 		
 		<h4>Numero de Sesiones: {{$fecha_taller->count()}}</h4>
@@ -77,13 +77,13 @@ th{
 					  
 					@foreach($estu as $es)
 					<tr>
-						<td><center>{{$es->nombre}}</center></td>
+						<td><center>{{$es->nombre}}  {{$es->apellidos}}</center></td>
 						@foreach($estFinal as $fe)
 						
 							
 							<td>
 								@if(($fe[$contador]->estado)==1)
-								<center>P</center> 
+								<center style="color: green;"><b>P</b></center> 
 								<?php 
 									$conta= $conta+1;
 									if($conta==0){
@@ -97,7 +97,7 @@ th{
 									$ausente=$total-$conta;
 
 								 ?>
-								@else <center>A</center>
+								@else <center style="color: red;"><b>A</b></center> 
 								@endif
 
 							</td>
@@ -158,7 +158,7 @@ th{
 						<td><center>{{$es->nombre}} {{$es->apellidos}}</center></td>
 						<td><center>{{$es->email}}</center></td>
 						<td><center>{{$con}}</center></td>
-					    <td><center>{{$aus}}</center></td>
+					    <td><center style="color: red;"><b>{{$aus}}</b></center></td>
 					    @endif
 					
 				

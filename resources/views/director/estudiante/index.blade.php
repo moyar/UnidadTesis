@@ -2,7 +2,7 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Estudiantes de {{Auth::user()->carreras->nombre}}</h3>
+		<h3><i class="fa fa-users"></i> Listado de Estudiantes de {{Auth::user()->carreras->nombre}}</h3>
 		@include('director.estudiante.search')
 	</div>
 </div>
@@ -21,7 +21,7 @@
 					<th><center>Opciones</center></th>
 				</thead>
                @foreach ($usuarios as $use)
-               <tbody>
+               
 				<tr>
 			
 					<td><center>{{$use->rut}}</center></td>
@@ -37,7 +37,7 @@
 				</tr>
 				
 				@endforeach
-				</tbody>
+				
 			</table>
 		</div>
 	</div>

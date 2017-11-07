@@ -1,9 +1,10 @@
 @extends ('layouts.admin')
 @section ('contenido')
 <div class="container">
-  <h4 style="color: green;"><b>Ficha Estudiante</b> </h4>
-  <h3>{{$estudiante->nombre}} {{$estudiante->apellidos}}</h3>
-
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+   <h4 style="color: green;"><b>Ficha Estudiante</b> </h4>
+  <h3><b>{{$estudiante->nombre}} {{$estudiante->apellidos}}</b></h3>
+  <h3> </h3>
  
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Datos Personales</a></li>
@@ -13,81 +14,115 @@
     <li><a data-toggle="tab" href="#menu4">Atencion Individual</a></li>
 
   </ul>
-
+</div>
 <div class="tab-content">
 
 <div id="home" class="tab-pane fade in active">
-
-    <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
        <div class="well well bs-component">
-        <form class="form-horizontal">
+         <h3 style="border-bottom-style: solid;"><center> <i class="fa fa-user"></i> Datos Personales </center> </h3>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Rut</center></label>
+              <div class="col-lg-9 col-xs-10">
+                <p class="form-control-static"><b>{{$estudiante->rut}}</b></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Nombres</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->nombre}}</b></p>
+              </div>
+            </div>
               <div class="form-group">
-               <label  class="control-label label-default col-sm-8 col-xs-10 col-form-label ">Rut:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->rut}}</p>
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Apellidos</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->apellidos}}</b></p>
               </div>
-              <label  class="control-label label-default col-sm-2  col-xs-10 col-form-label ">Nombre:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->nombre}}</p>
+            </div>
+               <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Telefono</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->telefono}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Apellidos:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->apellidos}}</p>
+            </div>
+               <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Correo Electronico</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->email}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Telefono:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->telefono}}</p>
+            </div>
+               <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Carrera</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->carreras->nombre}}</b></p>
               </div>
-                 <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Correo:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->email}}</p>
+            </div>
+               <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Fecha de Nacimiento</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->fecha_nacimiento}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Carrera:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->carreras->nombre}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Genero</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->sexo}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Fecha de Nacimiento:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->fecha_nacimiento}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Tipo de Ingreso</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->tipo_ingreso}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Genero:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->sexo}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Año de Ingreso</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->año_ingreso}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Tipo de Ingreso:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->tipo_ingreso}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Ciudad de Procedencia</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->ciudad_procedencia}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Año Ingreso:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->año_ingreso}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Quintil</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->quintil}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Ciudad de Procedencia:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->ciudad_procedencia}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Nombre Apoderado</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->nombre_apoderado}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Quintil:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->quintil}}</p>
+            </div>
+              <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Apellidos Apoderado</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->apellidos_apoderado}}</b></p>
               </div>
-               <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Nombre Apoderado:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->nombre_apoderado}}</p>
+            </div>
+             <div class="form-group">
+              <label class="col-lg-3 col-xs-12 control-label label-warning"><center>Telefono Apoderado</center></label>
+              <div class="col-lg-9 col-xs-12">
+                <p class="form-control-static"><b>{{$estudiante->telefono_apoderado}}</b></p>
               </div>
-                <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Apellidos Apoderado:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->apellidos_apoderado}}</p>
-              </div>
-                <label  class="control-label label-default col-sm-2 col-xs-10 col-form-label ">Telefono Apoderado:</label>
-              <div class="col-xs-10">
-                  <p class="form-control-static">{{$estudiante->telefono_apoderado}}</p>
-              </div>
-              </div>
+            </div>
+
+
             
-         </form>
+          </form>
+
         </div>
     </div>
+    
 </div>
+
+
 
 <style type="text/css">
 th{
@@ -124,9 +159,10 @@ th{
   
  ?>
 <div id="menu1" class="tab-pane fade "> 
-  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+  <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+    <h3 style="border-bottom-style: solid;"><center> <i class="fa fa-book"></i> Tutorías </center> </h3>
     <div class="table-responsive">
-       <div class="table-responsive">
+       
         <table class="table table-striped table-bordered table-condensed table-hover">
           <thead>
             <th class="col-md-2" >Asignatura</th>
@@ -169,18 +205,15 @@ th{
             @endforeach
           </tbody>
         </table>
-        </table>
-      </div>
-                      
-
   </div>
 </div>
 </div>
 
 <div id="menu2" class="tab-pane fade "> 
- <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+ <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+  <h3 style="border-bottom-style: solid;"><center> <i class="fa fa-calendar"></i> Talleres </center> </h3>
     <div class="table-responsive">
-       <div class="table-responsive">
+       
         <table class="table table-striped table-bordered table-condensed table-hover">
           <thead>
             <th class="col-md-2" >Taller</th>
@@ -222,10 +255,6 @@ th{
             @endforeach
           </tbody>
         </table>
-        </table>
-      </div>
-                      
-
   </div>
 </div>
 
@@ -242,7 +271,8 @@ th{
 
 </style>
 <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12">
+      <h3 style="border-bottom-style: solid;"><center> <i class="fa fa-graduation-cap" ></i>  Hoja de Vida </center> </h3>
       <h3>Nuevo Comentario</h3>
       @if (count($errors)>0)
       <div class="alert alert-danger">
@@ -273,13 +303,16 @@ th{
 
             {{ Form::submit('Agregar Comentario', ['class' => 'btn btn-success btn-block', 'style' => 'margin-top:15px;']) }}
           </div>
+          </form>
         </div>
-   </form>
+   
 {!!Form::close()!!}
 
 @include('administracion.estudiante.indiceComentario')
 </div>
 </div>
+</div>
+
 
 
 <div id="menu4" class="tab-pane fade "> 
@@ -294,6 +327,7 @@ th{
 </style>
 <div class="row">
     <div class="col-lg-10 col-md-8 col-sm-8 col-xs-12">
+      <h3 style="border-bottom-style: solid;"><center> <i class="fa fa-file"></i> Atención Individual </center> </h3>
       <h3>Nueva Atencion</h3>
       @if (count($errors)>0)
       <div class="alert alert-danger">
@@ -305,11 +339,10 @@ th{
       </div>
       @endif
 
-      {!!Form::open(array('url'=>'administracion/estudiante/datos','method'=>'POST','autocomplete'=>'off'))!!}
+      {!!Form::open(array('url'=>'administracion/estudiante/datoss','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
           
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <input type="hidden" name="estudianteId" value="{{$estudiante->id_user}}">
             <div class="row">
              <form>
@@ -342,12 +375,16 @@ th{
 
             {{ Form::submit('Agregar Atención', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-top:15px;']) }}
           </div>
+          </form>
         </div>
-   </form>
+   
 {!!Form::close()!!}
 
 @include('administracion.estudiante.atencion')
 </div>
+</div>
+</div>
+
 </div>
 
 

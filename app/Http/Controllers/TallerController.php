@@ -45,7 +45,8 @@ class TallerController extends Controller
      public function create()
     {
         $categorias = Categoria::all();
-        $estudiantes = Estudiante::all();
+        $estudiantes =  Estudiante::where('motivo','=',1)->where('activo','=',1)
+                                    ->orwhere('motivo','=',3)->where('activo','=',1)->get();
         return view('administracion.taller.create')->with('categorias',$categorias)->with('estudiantes',$estudiantes);
 
     }
@@ -105,7 +106,8 @@ class TallerController extends Controller
             $cate[$categoria->id_categoria] = $categoria->nombre;
         }
          //dd($cate);
-        $estudiantes = Estudiante::all();
+        $estudiantes =  Estudiante::where('motivo','=',1)->where('activo','=',1)
+                                    ->orwhere('motivo','=',3)->where('activo','=',1)->get();
         $estu = array();
         foreach ($estudiantes as $estudiante) {
             $nombre = "$estudiante->nombre $estudiante->apellidos";
@@ -283,19 +285,26 @@ class TallerController extends Controller
 
          $talleres = Taller::find($id);
          $estu =Taller::find($id)->estudiantes()->get();
+
          $fecha_taller =Fecha_taller::where('taller_id','=',$id)->get();
+         //dd($fecha_taller->count());
          $estFinal = array();
          $indice = 0;
+         $contador =0;
          foreach ($fecha_taller as $a) {
                   $estudiantes= Estudiante_fechat::where('fecha_id','=',$a->id_t)->get();
+
                   $estFinal[$indice] = $estudiantes;
-                  $indice+=1;
+                  
+                  $indice =$indice + 1;
+                  
+
                   $estudi= Estudiante_fechat::where('fecha_id','=',$a->id_t)->select('estado')->get();
-      
+                
                
         }
-       // dd($estFinal);
-      
+       
+      //dd($fecha_taller->count());
         return view('administracion.taller.ver',compact('talleres','estFinal','fecha_taller','estu'));
        
     }

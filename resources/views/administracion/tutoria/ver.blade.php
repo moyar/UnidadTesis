@@ -2,11 +2,12 @@
 @section ('contenido')
 <div class="well well bs-component">
 <div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Asistencia del curso</h3>
-		<h4>{{$tutorias->asignaturas->nombre}}</h4>
-		<h4>{{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h4>
-		<h4>Numero de Sesiones: {{$fecha_tutoria->count()}}</h4>
+	<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12">
+		<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-calendar"></i> Asistencia del curso</center> </h3>
+		<h3></h3>
+		<h4><b>Nombre Tutoría: </b>{{$tutorias->asignaturas->nombre}}</h4>
+		<h4><b>Tutor: </b>{{$tutorias->users->name}} {{$tutorias->users->apellidos}}</h4>
+		<h4><b>Numero de Sesiones: </b>{{$fecha_tutoria->count()}}</h4>
 	</div>
 </div>
 </div>
@@ -80,7 +81,7 @@ th{
 							
 							<td>
 								@if(($fe[$contador]->estado)==1)
-								<center>P</center> 
+								<center style="color: green;"><b>P</b></center> 
 								<?php 
 									$conta= $conta+1;
 									
@@ -94,7 +95,7 @@ th{
 									
 									
 								 ?>
-								@else <center>A</center>
+								@else <center style="color: red;"><b>A</b></center> 
 								@endif
 
 							</td>
@@ -157,7 +158,7 @@ th{
 						<td><center>{{$es->nombre}} {{$es->apellidos}}</center></td>
 						<td><center>{{$es->email}}</center></td>
 						<td><center>{{$con}}</center></td>
-					    <td><center>{{$aus}}</center></td>
+					    <td><center style="color: red;"><b>{{$aus}}</b></center></td>
 
 					{!!Form::open(array('action'=>['TutoriaController@correo',$tutorias->id],'method'=>'POST','autocomplete'=>'off'))!!}
                       				

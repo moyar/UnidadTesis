@@ -16,9 +16,9 @@
 		
 					<thead>
 						<tr>
-							<th>Nombre</th>
-							<th>Fecha creacion</th>
-							<th>Comentario</th>
+							<th><center>Nombre</center></th>
+							<th><center>Fecha creacion</center></th>
+							<th><center>Comentario</center></th>
 							<th width="70px"></th>
 						</tr>
 					</thead>
@@ -43,8 +43,8 @@
 			</div>
 		 </div>
 		</div>
-	</div>
 </div>
+
 
 
 

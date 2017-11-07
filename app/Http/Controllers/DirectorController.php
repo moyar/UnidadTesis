@@ -41,11 +41,11 @@ class DirectorController extends Controller
         {
             $query=trim($request->get('searchText'));
            
-             $usuarios = Estudiante::where('carrera_id','=',$usuario)->orderBy('id_user', 'desc')
+             $usuarios = Estudiante::where('carrera_id','=',$usuario)->where('activo','=',1)->orderBy('id_user', 'desc')
                          ->where('nombre','LIKE','%'.$query.'%')
-                         ->orwhere('rut','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)
-                         ->orwhere('apellidos','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)
-                         ->orwhere('email','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)
+                         ->orwhere('rut','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)->where('activo','=',1)
+                         ->orwhere('apellidos','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)->where('activo','=',1)
+                         ->orwhere('email','LIKE','%'.$query.'%')->where('carrera_id','=',$usuario)->where('activo','=',1)
             ->paginate(10);
           
            

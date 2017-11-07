@@ -1,8 +1,10 @@
 @extends ('layouts.admin')
 @section ('contenido')
+<div class="well well bs-component">
 	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Tutoria</h3>
+		<div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+			<h3 style="border-bottom-style: solid;"><center> <i class="fa fa-pencil"></i> Editar Tutoría</center> </h3>
+			
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -12,7 +14,8 @@
 				</ul>
 			</div>
 			@endif
-
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
 	{!!Form::model($tutorias,['method'=>'PUT','route'=>['administracion.tutoria.update',$tutorias->id]])!!}
             {{Form::token()}}
             <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -31,6 +34,33 @@
            {{ Form::label('tutores_id', "Tutores:", ['class' => 'form-spacing-top']) }}
 			{{ Form::select('tutores_id', $tutores, null, ['class' => 'form-control']) }}
 			</div>
+
+			<div class="form-group col-md-8">
+                                   <label for = "dia">periodo</label>
+                                   <select class="form-control" name="dia">
+                                     <option value='{{$tutorias->dia}}'> {{$tutorias->dia}} </option>
+                                                 	<option value=''> Seleccione el Día </option>
+													<option value='Lunes'> Lunes </option>
+													<option value='Martes'> Martes</option>
+													<option value='Miercoles'> Miercoles </option>
+													<option value='Jueves'> Jueves </option>
+													<option value='Viernes'> Viernes </option>
+						              </select>
+              </div>
+
+			<div class="form-group col-md-8">
+                                   <label for = "periodo">periodo</label>
+                                   <select class="form-control" name="periodo">
+                                     <option value='{{$tutorias->periodo}}'> {{$tutorias->periodo}} </option>
+                                                  <option value=''> Seleccione Periodo </option>
+                                                  <option value='1'> I </option>
+												<option value='2'> II </option>
+												<option value='3'> III </option>
+												<option value='4'> IV </option>
+												<option value='5'> V </option>
+												<option value='6'> VI </option> 
+						              </select>
+              </div>
 
 			 <div class="form-group col-md-8">
                                    <label for = "semestre">Semestre</label>
@@ -65,13 +95,14 @@
             	<a href="{{action('TutoriaController@mostrarGestionar',$tutorias->id)}}" class="btn btn-danger">Cancelar</a>
             	
             </div>
-
+        </div>
 
 			{!!Form::close()!!}		
             
 		</div>
             
 		</div>
+	</div>
 		{!! Html::script('js/select2.min.js') !!}
 		{!! Html::style('css/select2.min.css') !!}
 

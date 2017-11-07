@@ -129,6 +129,26 @@
                                     <label for="telefonoA">Telefono Apoderado</label>
                                     <input type="text" name="telefonoA" class="form-control" value="{{$usuarios->telefono_apoderado}}">
                               </div>
+                              <div class="form-group col-md-12">
+                                   <label for = "motivo">Motivo</label>
+                                   <select class="form-control" name="motivo">
+                                                @if($usuarios->motivo == 1)
+                                                  <option value='{{$usuarios->motivo}}'> Atencíon Psicopedagógica </option>
+                                                @endif
+                                                @if($usuarios->motivo == 2)
+                                                  <option value='{{$usuarios->motivo}}'> Solicitud Tutorías </option>
+                                                @endif
+                                                @if($usuarios->motivo == 3)
+                                                  <option value='{{$usuarios->motivo}}'> Ambos </option>
+                                                @endif
+                                                  <option value=''> Seleccione Motivo </option>
+                                                  <option value='1'> Atención Psicopedagógica</option>
+                                                  <option value='2'> Solicitud Tutorías</option>
+                                                  <option value='3'> Ambas</option>
+                                                 
+                                                    
+                                    </select>
+                               </div>
 
                           <div class="form-group col-md-12">
                            <button class="btn btn-success" type="submit">Finalizar Expediente</button>
